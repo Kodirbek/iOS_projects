@@ -63,8 +63,7 @@ class BullsEyeGame {
 
   @discardableResult
   func check(guess: Int) -> Int {
-    let difference = guess - targetValue
-    //    let difference = abs(targetValue - guess)
+    let difference = abs(targetValue - guess)
     scoreRound = 100 - difference
     scoreTotal += scoreRound
     return difference
@@ -79,7 +78,7 @@ class BullsEyeGame {
         guard
           let data = data,
           error == nil,
-          let newTarget = try JSONDecoder().decode([Int].self, from: data).first
+          let newTarget = try JSONDecoder().decode([Int].self, from: data).first  
         else {
           return
         }
