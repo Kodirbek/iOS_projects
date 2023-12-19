@@ -32,6 +32,7 @@ import XCTest
 final class BullsEyeSlowTests: XCTestCase {
   
   var sut: URLSession!
+  let networkMonitor = NetworkMonitor.shared
   
   override func setUpWithError() throws {
     try super.setUpWithError()
@@ -45,6 +46,10 @@ final class BullsEyeSlowTests: XCTestCase {
   
   // Asynchronous test: success fast, failure slow
   func testValidApiCallGetsHTTPStatusCode200() throws {
+    
+    try XCTSkipUnless(networkMonitor.isReachable,
+                      "Network connectivity neede for this test.")
+    
     // given
     let urlString =
       "http://www.randomnumberapi.com/api/v1.0/random?min=0&max=100&count=1"
@@ -73,6 +78,10 @@ final class BullsEyeSlowTests: XCTestCase {
   }
   
   func testApiCallCompletes() throws {
+    
+    try XCTSkipUnless(networkMonitor.isReachable,
+                      "Network connectivity neede for this test.")
+    
     // given
     let urlString = "http://www.randomnumberapi.com"
     let url = URL(string: urlString)!
