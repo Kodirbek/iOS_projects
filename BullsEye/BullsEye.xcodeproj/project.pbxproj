@@ -13,6 +13,7 @@
 		202D823E25D7D8A300778080 /* URLSessionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D823D25D7D8A300778080 /* URLSessionStub.swift */; };
 		5394F02521864DF5006E754C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5394F02321864DF4006E754C /* LaunchScreen.storyboard */; };
 		81638F3C2B24321200668D1B /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81638F3B2B24321200668D1B /* BullsEyeTests.swift */; };
+		8183811D2B3262C0001C261E /* BullsEyeFakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183811C2B3262C0001C261E /* BullsEyeFakeTests.swift */; };
 		81D5FFF72B3108D10042CA3A /* BullsEyeSlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FFF62B3108D10042CA3A /* BullsEyeSlowTests.swift */; };
 		D2A5F2091F4A9144005CD714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F2071F4A9144005CD714 /* Main.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		5394F02421864DF4006E754C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81638F392B24321200668D1B /* BullsEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullsEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81638F3B2B24321200668D1B /* BullsEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeTests.swift; sourceTree = "<group>"; };
+		8183811C2B3262C0001C261E /* BullsEyeFakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeFakeTests.swift; sourceTree = "<group>"; };
 		81D5FFF62B3108D10042CA3A /* BullsEyeSlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeSlowTests.swift; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A5F2081F4A9144005CD714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				81638F3B2B24321200668D1B /* BullsEyeTests.swift */,
 				81D5FFF62B3108D10042CA3A /* BullsEyeSlowTests.swift */,
+				8183811C2B3262C0001C261E /* BullsEyeFakeTests.swift */,
 			);
 			path = BullsEyeTests;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				81638F3C2B24321200668D1B /* BullsEyeTests.swift in Sources */,
 				81D5FFF72B3108D10042CA3A /* BullsEyeSlowTests.swift in Sources */,
+				8183811D2B3262C0001C261E /* BullsEyeFakeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
