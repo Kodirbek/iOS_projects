@@ -11,6 +11,7 @@
 		8183813E2B36FFF3001C261E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183813D2B36FFF3001C261E /* ContentView.swift */; };
 		818381402B36FFF9001C261E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8183813F2B36FFF9001C261E /* Assets.xcassets */; };
 		818381442B36FFF9001C261E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818381432B36FFF9001C261E /* Preview Assets.xcassets */; };
+		8183814B2B3701FA001C261E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183814A2B3701F9001C261E /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		8183813F2B36FFF9001C261E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		818381412B36FFF9001C261E /* FaceFacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceFacts.entitlements; sourceTree = "<group>"; };
 		818381432B36FFF9001C261E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8183814A2B3701F9001C261E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				8183813B2B36FFF3001C261E /* FaceFactsApp.swift */,
 				8183813D2B36FFF3001C261E /* ContentView.swift */,
+				8183814A2B3701F9001C261E /* Person.swift */,
 				8183813F2B36FFF9001C261E /* Assets.xcassets */,
 				818381412B36FFF9001C261E /* FaceFacts.entitlements */,
 				818381422B36FFF9001C261E /* Preview Content */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8183814B2B3701FA001C261E /* Person.swift in Sources */,
 				8183813E2B36FFF3001C261E /* ContentView.swift in Sources */,
 				8183813C2B36FFF3001C261E /* FaceFactsApp.swift in Sources */,
 			);
