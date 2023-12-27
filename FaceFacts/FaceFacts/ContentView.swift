@@ -12,28 +12,20 @@ struct ContentView: View {
     
     @Environment(\.modelContext) var modelContext
     @State private var path = [Person]()
-    @Query var people: [Person]
     
     @State private var searchText = ""
     
     var body: some View {
         NavigationStack(path: $path) {
-            List {
-                ForEach(people) { person in
-                    NavigationLink(value: person) {
-                        Text(person.name)
-                    }
+            PeopleView()
+                .navigationTitle("FaceFacts")
+                .navigationDestination(for: Person.self) { person in
+                    EditPersonView(person: person)
                 }
-                .onDelete(perform: deletePerson)
-            }
-            .navigationTitle("FaceFacts")
-            .navigationDestination(for: Person.self) { person in
-                EditPersonView(person: person)
-            }
-            .toolbar {
-                Button("Add person", systemImage: "plus", action: addPerson)
-            }
-            .searchable(text: $searchText)
+                .toolbar {
+                    Button("Add person", systemImage: "plus", action: addPerson)
+                }
+                .searchable(text: $searchText)
         }
     }
     
@@ -43,12 +35,7 @@ struct ContentView: View {
         path.append(person)
     }
     
-    func deletePerson(at offsets: IndexSet) {
-        for offset in offsets {
-            let person = people[offset]
-            modelContext.delete(person)
-        }
-    }
+    
 }
 
 #Preview {
