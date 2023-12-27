@@ -27,7 +27,13 @@ struct PeopleView: View {
     
     init(searchString: String = "") {
         _people = Query(filter: #Predicate { person in
-            true
+            if searchString.isEmpty {
+                true
+            } else {
+                person.name.localizedStandardContains(searchString)
+                || person.emailAddress.localizedStandardContains(searchString)
+                || person.details.localizedStandardContains(searchString)
+            }
         })
     }
     
