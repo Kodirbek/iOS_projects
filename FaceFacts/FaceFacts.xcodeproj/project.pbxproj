@@ -15,6 +15,7 @@
 		8183814D2B39578E001C261E /* EditPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183814C2B39578E001C261E /* EditPersonView.swift */; };
 		8183814F2B3C65B8001C261E /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183814E2B3C65B8001C261E /* PeopleView.swift */; };
 		818381512B3F10C9001C261E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818381502B3F10C9001C261E /* Event.swift */; };
+		818381532B3F1275001C261E /* EditEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818381522B3F1275001C261E /* EditEventView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8183814C2B39578E001C261E /* EditPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonView.swift; sourceTree = "<group>"; };
 		8183814E2B3C65B8001C261E /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		818381502B3F10C9001C261E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		818381522B3F1275001C261E /* EditEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				8183813D2B36FFF3001C261E /* ContentView.swift */,
 				8183814E2B3C65B8001C261E /* PeopleView.swift */,
 				8183814C2B39578E001C261E /* EditPersonView.swift */,
+				818381522B3F1275001C261E /* EditEventView.swift */,
 				8183814A2B3701F9001C261E /* Person.swift */,
 				818381502B3F10C9001C261E /* Event.swift */,
 				8183813F2B36FFF9001C261E /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 				8183813C2B36FFF3001C261E /* FaceFactsApp.swift in Sources */,
 				818381512B3F10C9001C261E /* Event.swift in Sources */,
 				8183814D2B39578E001C261E /* EditPersonView.swift in Sources */,
+				818381532B3F1275001C261E /* EditEventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

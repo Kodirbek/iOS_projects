@@ -5,11 +5,17 @@
 //  Created by kodirbek on 12/25/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct EditPersonView: View {
     
     @Bindable var person: Person
+    
+    @Query(sort: [
+        SortDescriptor(\Event.name),
+        SortDescriptor(\Event.location)
+    ]) var events: [Event]
     
     var body: some View {
         Form {
@@ -28,6 +34,10 @@ struct EditPersonView: View {
         }
         .navigationTitle("Edit Person")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func addEvent() {
+        
     }
 }
 
