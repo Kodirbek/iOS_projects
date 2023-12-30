@@ -30,7 +30,7 @@ struct EditPersonView: View {
             }
             
             Section("Where did you meet them?") {
-                Picker("Meth at", selection: $person.metAt) {
+                Picker("Met at", selection: $person.metAt) {
                     Text("Unknown event")
                         .tag(Optional<Event>.none)
                     
