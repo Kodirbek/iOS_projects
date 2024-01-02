@@ -14,6 +14,7 @@ class Person {
     var emailAddress: String
     var details: String
     var metAt: Event?
+    @Attribute(.externalStorage) var photo: Data?
     
     init(name: String, emailAddress: String, details: String, metAt: Event? = nil) {
         self.name = name
