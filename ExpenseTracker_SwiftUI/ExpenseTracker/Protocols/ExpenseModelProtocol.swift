@@ -1,4 +1,4 @@
-/// Copyright (c) 2021 Razeware LLC
+/// Copyright (c) 2024 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -30,45 +30,12 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
+import Foundation
 
-struct ExpenseItemView: View {
-  let expenseItem: ExpenseModelProtocol
-
-  static let dateFormatter: DateFormatter = {
-    var dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .none
-    return dateFormatter
-  }()
-
-  static let timeFormatter: DateFormatter = {
-    var dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .none
-    dateFormatter.timeStyle = .medium
-    return dateFormatter
-  }()
-
-  var body: some View {
-    VStack(alignment: .leading) {
-      HStack {
-        Text(expenseItem.title ?? "")
-        Spacer()
-        Text(String(format: "%.2f", expenseItem.price))
-      }
-      Text(expenseItem.comment ?? "")
-        .font(.caption)
-      HStack {
-        Text("\(expenseItem.date ?? Date(), formatter: Self.dateFormatter)")
-        Spacer()
-        Text("\(expenseItem.date ?? Date(), formatter: Self.timeFormatter)")
-      }
-    }
-  }
-}
-
-struct ExpenseItemView_Previews: PreviewProvider {
-  static var previews: some View {
-    ExpenseItemView(expenseItem: PersistenceController.previewItem)
-  }
+protocol ExpenseModelProtocol {
+  var title: String? { get }
+  var price: Double { get }
+  var comment: String? { get }
+  var date: Date? { get }
+  var id: UUID? { get }
 }
