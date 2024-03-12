@@ -68,7 +68,15 @@ struct ExpenseItemView: View {
 }
 
 struct ExpenseItemView_Previews: PreviewProvider {
+  struct PreviewExpenseModel: ExpenseModelProtocol {
+    var title: String? = "Preview Item"
+    var price: Double = 123.45
+    var comment: String? = "This is a preview item"
+    var date: Date? = Date()
+    var id: UUID? = UUID()
+  }
+  
   static var previews: some View {
-    ExpenseItemView(expenseItem: PersistenceController.previewItem)
+    ExpenseItemView(expenseItem: PreviewExpenseModel())
   }
 }
