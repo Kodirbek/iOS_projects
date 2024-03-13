@@ -37,5 +37,5 @@ protocol SaveEntryProtocol {
     title: String,
     price: Double,
     date: Date,
-    comment: String)
+    comment: String) -> Bool
 }
