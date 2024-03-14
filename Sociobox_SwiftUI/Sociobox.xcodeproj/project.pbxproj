@@ -19,6 +19,7 @@
 		3288BEA124F3CD6B00EC73B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288BE9924F3CD6B00EC73B9 /* User.swift */; };
 		3288BEA224F3CD6B00EC73B9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288BE9B24F3CD6B00EC73B9 /* ProfileView.swift */; };
 		3288BEA324F3CD6B00EC73B9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288BE9C24F3CD6B00EC73B9 /* ImageView.swift */; };
+		81C6635B2BA33E4300374BF4 /* ProfileContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C6635A2BA33E4300374BF4 /* ProfileContentProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3288BE9924F3CD6B00EC73B9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3288BE9B24F3CD6B00EC73B9 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3288BE9C24F3CD6B00EC73B9 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		81C6635A2BA33E4300374BF4 /* ProfileContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				3288BE9524F3CD6B00EC73B9 /* PrivacyLevel.swift */,
+				81C6635A2BA33E4300374BF4 /* ProfileContentProvider.swift */,
 				3288BE9A24F3CD6B00EC73B9 /* Views */,
 				18D775C222AD944300AE281E /* SceneDelegate.swift */,
 				18D775C622AD944400AE281E /* Assets.xcassets */,
@@ -200,6 +203,7 @@
 				3288BEA324F3CD6B00EC73B9 /* ImageView.swift in Sources */,
 				18D775C122AD944300AE281E /* AppDelegate.swift in Sources */,
 				3288BEA224F3CD6B00EC73B9 /* ProfileView.swift in Sources */,
+				81C6635B2BA33E4300374BF4 /* ProfileContentProvider.swift in Sources */,
 				18D775C322AD944300AE281E /* SceneDelegate.swift in Sources */,
 				3288BE9F24F3CD6B00EC73B9 /* ImageLoader.swift in Sources */,
 				3288BEA024F3CD6B00EC73B9 /* Mock.swift in Sources */,
