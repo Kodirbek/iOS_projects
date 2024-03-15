@@ -37,6 +37,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    
+    let container = DIContainer.shared
+    container.register(type: PrivacyLevel.self, component: PrivacyLevel.friend)
+    container.register(type: User.self, component: Mock.user())
+    container.register(
+      type: ProfileContentProviderProtocol.self,
+      component: ProfileContentProvider()
+    )
+
+    
     let profileView = ProfileView()
     if let windowScene = scene as? UIWindowScene {
       let window = UIWindow(windowScene: windowScene)
