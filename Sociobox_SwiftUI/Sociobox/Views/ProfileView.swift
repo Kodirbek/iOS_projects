@@ -34,25 +34,28 @@
 import SwiftUI
 
 struct ProfileView: View {
-  private let privacyLevel = PrivacyLevel.friend
-  private let user: User = Mock.user()
+  
+  private let user: User
+  private let provider: ProfileContentProviderProtocol
 
+  init(provider: ProfileContentProviderProtocol, user: User) {
+    self.provider = provider
+    self.user = user
+  }
+
+  
   var body: some View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: true) {
         VStack {
           ProfileHeaderView(
             user: user,
-            canSendMessage: privacyLevel == .friend,
-            canStartVideoChat: privacyLevel == .friend
+            canSendMessage: provider.canSendMessage,
+            canStartVideoChat: provider.canStartVideoChat
           )
-          if privacyLevel == .friend {
-            UsersView(title: "Friends", users: user.friends)
-            PhotosView(photos: user.photos)
-            HistoryFeedView(posts: user.historyFeed)
-          } else {
-            RestrictedAccessView()
-          }
+          provider.friendsView
+          provider.photosView
+          provider.feedView
         }
       }
       .navigationTitle("Profile")
