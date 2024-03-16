@@ -64,11 +64,11 @@ final class ProfileContentProvider: ProfileContentProviderProtocol {
   }
 
   var canStartVideoChat: Bool {
-    privacyLevel > .everyone
+    privacyLevel > .friend
   }
 
   var photosView: AnyView {
-    privacyLevel > .everyone ?
+    privacyLevel > .friend ?
       AnyView(PhotosView(photos: user.photos)) :
       AnyView(EmptyView())
   }

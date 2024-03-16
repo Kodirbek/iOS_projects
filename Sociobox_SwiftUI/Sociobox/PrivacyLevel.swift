@@ -33,5 +33,5 @@
 import Foundation
 
 enum PrivacyLevel: Comparable {
-  case everyone, friend
+  case everyone, friend, closeFriend
 }
