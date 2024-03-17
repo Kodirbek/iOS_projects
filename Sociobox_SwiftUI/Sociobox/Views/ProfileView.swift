@@ -33,18 +33,16 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct ProfileView<ContentProvider>: View
+  where ContentProvider: ProfileContentProviderProtocol {
   
   private let user: User
-  private let provider: ProfileContentProviderProtocol
-
+  @ObservedObject private var provider: ContentProvider
+  
   init(
-    provider:
-    ProfileContentProviderProtocol = DIContainer.shared.resolve(
-      type: ProfileContentProvider.self)!,
-    user:
-    User = DIContainer.shared.resolve(
-      type: User.self)!
+    provider: ContentProvider =
+      DIContainer.shared.resolve(type: ContentProvider.self)!,
+    user: User = DIContainer.shared.resolve(type: User.self)!
   ) {
     self.provider = provider
     self.user = user
@@ -66,18 +64,26 @@ struct ProfileView: View {
         }
       }
       .navigationTitle("Profile")
+      .navigationBarItems(trailing: Button(action: {}) {
+        NavigationLink(destination: UserPreferencesView<PreferencesStore>()) {
+          Image(systemName: "gear")
+        }
+      })
     }
   }
 }
 
 struct ProfileView_Previews: PreviewProvider {
-  private static let user = Mock.user()
   static var previews: some View {
-    ProfileView(
-      provider: ProfileContentProvider(
-        privacyLevel: .friend,
-        user: user),
-      user: user)
+    typealias Provider = ProfileContentProvider<PreferencesStore>
+    let container = DIContainer.shared
+    container.register(type: PrivacyLevel.self, component: PrivacyLevel.friend)
+    container.register(type: User.self, component: Mock.user())
+    container.register(
+      type: PreferencesStore.self,
+      component: PreferencesStore())
+    container.register(type: Provider.self, component: Provider())
+    return ProfileView<Provider>()
   }
 }
 

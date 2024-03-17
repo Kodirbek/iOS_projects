@@ -22,6 +22,7 @@
 		81C6635B2BA33E4300374BF4 /* ProfileContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C6635A2BA33E4300374BF4 /* ProfileContentProvider.swift */; };
 		81C6635D2BA3C76600374BF4 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C6635C2BA3C76600374BF4 /* DIContainer.swift */; };
 		81C663612BA699E900374BF4 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C663602BA699E900374BF4 /* PreferencesStore.swift */; };
+		81C663632BA6AD9400374BF4 /* UserPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C663622BA6AD9400374BF4 /* UserPreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		81C6635A2BA33E4300374BF4 /* ProfileContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentProvider.swift; sourceTree = "<group>"; };
 		81C6635C2BA3C76600374BF4 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		81C663602BA699E900374BF4 /* PreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
+		81C663622BA6AD9400374BF4 /* UserPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		3288BE9A24F3CD6B00EC73B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				81C663622BA6AD9400374BF4 /* UserPreferencesView.swift */,
 				3288BE9B24F3CD6B00EC73B9 /* ProfileView.swift */,
 				3288BE9C24F3CD6B00EC73B9 /* ImageView.swift */,
 			);
@@ -212,6 +215,7 @@
 				3288BEA224F3CD6B00EC73B9 /* ProfileView.swift in Sources */,
 				81C6635B2BA33E4300374BF4 /* ProfileContentProvider.swift in Sources */,
 				18D775C322AD944300AE281E /* SceneDelegate.swift in Sources */,
+				81C663632BA6AD9400374BF4 /* UserPreferencesView.swift in Sources */,
 				3288BE9F24F3CD6B00EC73B9 /* ImageLoader.swift in Sources */,
 				81C663612BA699E900374BF4 /* PreferencesStore.swift in Sources */,
 				3288BEA024F3CD6B00EC73B9 /* Mock.swift in Sources */,
