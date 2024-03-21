@@ -30,28 +30,35 @@ struct ContentView: View {
     // MARK: - View
     var body: some View {
         ZStack {
-            Color.customBackground
+            LinearGradient(colors: [.teal, .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {
-                Text("Tap the flag of \n\(countries[correctAnswer])")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .fontDesign(.rounded)
-                    .multilineTextAlignment(.center)
+                VStack {
+                    Text("Tap the flag of")
+                        .foregroundStyle(.white)
+                        .font(.title3.weight(.heavy))
+                        .fontDesign(.rounded)
+                    
+                    Text(countries[correctAnswer])
+                        .foregroundStyle(.white)
+                        .font(.largeTitle.weight(.bold))
+                        .fontDesign(.rounded)
+                }
                 
                 ForEach(0..<3) { number in
                     Button(action: {
                         flagChosen(at: number)
                     }, label: {
                         Image(countries[number])
-                            .shadow(color: .secondary, radius: 4, x: 0, y: 3)
+                            .clipShape(.rect(cornerRadius: 10))
+                            .shadow(color: .white, radius: 3, x: 0, y: 0)
                     })
                 }
                 
                 Text("Current score: \(score)")
-                    .font(.title3)
-                    .fontWeight(.regular)
+                    .foregroundStyle(.white)
+                    .font(.subheadline.weight(.bold))
                     .fontDesign(.rounded)
             }
         }
