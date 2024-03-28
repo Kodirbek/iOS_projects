@@ -25,6 +25,7 @@ struct ContentView: View {
                 Section {
                     TextField("Enter your word", text: $newWord)
                         .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
                 }
                 
                 Section {
@@ -52,6 +53,12 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         guard answer.count > 0 else { return }
         
+        guard isThreeOrMoreChars(word: answer) else {
+            wordError(title: "Word not long enough",
+                      message: "It should be 3 or more characters!")
+            return
+        }
+        
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already",
                       message: "Be more original!")
@@ -61,6 +68,12 @@ struct ContentView: View {
         guard isPossible(word: answer) else {
             wordError(title: "Word not possible",
                       message: "You can't spell '\(answer)' from '\(rootWord)'")
+            return
+        }
+        
+        guard isNotRootWord(word: answer) else {
+            wordError(title: "Word is not possible",
+                      message: "You can't just enter the given word!")
             return
         }
         
@@ -88,6 +101,10 @@ struct ContentView: View {
         fatalError("Could not load start.txt from bundle.")
     }
     
+    private func isThreeOrMoreChars(word: String) -> Bool {
+        word.count >= 3
+    }
+    
     private func isOriginal(word: String) -> Bool {
         !usedWords.contains(word)
     }
@@ -104,6 +121,18 @@ struct ContentView: View {
         }
         
         return true
+    }
+    
+    private func isNotRootWord(word: String) -> Bool {
+        var tempWord = rootWord
+        
+        for letter in word {
+            if let pos = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: pos)
+            }
+        }
+        
+        return tempWord.count != 0
     }
     
     private func isReal(word: String) -> Bool {
