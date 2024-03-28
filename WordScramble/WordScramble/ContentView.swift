@@ -38,7 +38,7 @@ struct ContentView: View {
     }
     
     // MARK: - Methods
-    func addNewWord() {
+    private func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         guard answer.count > 0 else { return }
         
