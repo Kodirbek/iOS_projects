@@ -40,6 +40,13 @@ struct ContentView: View {
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
             .onAppear(perform: startGame)
+            .toolbar {
+                Button("Start over") {
+                    startGame()
+                    clearTableView()
+                }
+                    .foregroundStyle(.black)
+            }
             .alert(errorTitle, isPresented: $showingError) {
                 Button("Ok") { }
             } message: {
@@ -151,6 +158,13 @@ struct ContentView: View {
         errorTitle = title
         errorMessage = message
         showingError = true
+    }
+    
+    private func clearTableView() {
+        withAnimation {
+            usedWords.removeAll()
+        }
+        newWord = ""
     }
 }
 
