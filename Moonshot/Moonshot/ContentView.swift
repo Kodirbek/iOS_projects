@@ -25,11 +25,15 @@ struct ContentView: View {
                             Text("DetailView")
                         } label: {
                             VStack {
-                                Image(mission.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .padding()
+                                ZStack {
+                                    Color(.white)
+                                    
+                                    Image(mission.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 100)
+                                        .padding()
+                                }
                                 
                                 VStack {
                                     Text(mission.displayName)
