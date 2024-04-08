@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let astronaut = Bundle.main.decode("astronauts.json")
+    let astronaut: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+    let mission: [Mission] = Bundle.main.decode("missions.json")
     
     var body: some View {
         Text(String(astronaut.count))
