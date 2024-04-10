@@ -16,4 +16,8 @@ extension ShapeStyle where Self == Color {
     static var lightBackground: Color {
         Color(red: 0.2, green: 0.2, blue: 0.3)
     }
+    
+    static var cardBackgroundColor: Color {
+        Color(red: 0.2, green: 0.2, blue: 0.3, opacity: 0.5)
+    }
 }

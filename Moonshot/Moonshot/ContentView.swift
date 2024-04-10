@@ -24,28 +24,28 @@ struct ContentView: View {
                         NavigationLink {
                             Text("DetailView")
                         } label: {
-                            VStack {
-                                ZStack {
-                                    Color(.white)
-                                    
+                            ZStack {
+                                Color.cardBackgroundColor
+                                
+                                VStack {
                                     Image(mission.image)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100, height: 100)
                                         .padding()
-                                }
-                                
-                                VStack {
-                                    Text(mission.displayName)
-                                        .font(.headline)
                                     
-                                    Text(mission.formattedLaunchDate)
-                                        .font(.caption)
+                                    VStack {
+                                        Text(mission.displayName)
+                                            .font(.headline)
+                                        
+                                        Text(mission.formattedLaunchDate)
+                                            .font(.caption)
+                                    }
+                                    .padding(.vertical)
+                                    .foregroundStyle(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .background(.lightBackground)
                                 }
-                                .padding(.vertical)
-                                .foregroundStyle(.white)
-                                .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
                             }
                             .clipShape(.rect(cornerRadius: 10))
                             .overlay {
