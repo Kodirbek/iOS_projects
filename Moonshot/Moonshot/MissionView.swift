@@ -46,6 +46,9 @@ struct MissionView: View {
                     
                     Text("Mission Highlights")
                         .font(.title.bold())
+                    
+                    Text("Launch date: \(mission.formattedLaunchDate)")
+                        .font(.subheadline)
                         .padding(.bottom, 10)
                     
                     Text(mission.description)
@@ -65,7 +68,7 @@ struct MissionView: View {
                     HStack {
                         ForEach(crew, id: \.role) { crewMember in
                             NavigationLink {
-                                Text("Astronaut details")
+                                AstronautView(astronaut: crewMember.astronaut)
                             } label: {
                                 HStack {
                                     Image(crewMember.astronaut.id)

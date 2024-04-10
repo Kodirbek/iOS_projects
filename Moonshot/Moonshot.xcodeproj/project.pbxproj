@@ -19,6 +19,7 @@
 		8195EDB62BC42E080036D16C /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195EDB52BC42E080036D16C /* Color-Theme.swift */; };
 		8195EDB82BC6140F0036D16C /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195EDB72BC6140F0036D16C /* MissionView.swift */; };
 		8195EDBA2BC61AF10036D16C /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195EDB92BC61AF10036D16C /* CrewMember.swift */; };
+		8195EDBC2BC624820036D16C /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195EDBB2BC624820036D16C /* AstronautView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		8195EDB52BC42E080036D16C /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 		8195EDB72BC6140F0036D16C /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		8195EDB92BC61AF10036D16C /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
+		8195EDBB2BC624820036D16C /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				8195EDB52BC42E080036D16C /* Color-Theme.swift */,
 				8195ED9F2BBD8C0B0036D16C /* ContentView.swift */,
 				8195EDB72BC6140F0036D16C /* MissionView.swift */,
+				8195EDBB2BC624820036D16C /* AstronautView.swift */,
 				8195EDAF2BBEE0A10036D16C /* Astronaut.swift */,
 				8195EDB92BC61AF10036D16C /* CrewMember.swift */,
 				8195EDB32BC41B030036D16C /* Mission.swift */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8195EDB82BC6140F0036D16C /* MissionView.swift in Sources */,
+				8195EDBC2BC624820036D16C /* AstronautView.swift in Sources */,
 				8195EDB02BBEE0A10036D16C /* Astronaut.swift in Sources */,
 				8195EDB62BC42E080036D16C /* Color-Theme.swift in Sources */,
 				8195EDA02BBD8C0B0036D16C /* ContentView.swift in Sources */,
