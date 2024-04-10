@@ -22,7 +22,7 @@ struct ContentView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(missions) { mission in
                         NavigationLink {
-                            Text("DetailView")
+                            MissionView(mission: mission, astronauts: astronauts)
                         } label: {
                             ZStack {
                                 Color.cardBackgroundColor
