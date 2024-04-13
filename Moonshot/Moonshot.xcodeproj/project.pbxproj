@@ -70,6 +70,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8161491E2BCABF5A00FF0ADA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8195EDB52BC42E080036D16C /* Color-Theme.swift */,
+				8195EDB12BBEE56C0036D16C /* Bundle-Decodable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8161491F2BCABF6D00FF0ADA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8195EDAB2BBEE0030036D16C /* astronauts.json */,
+				8195EDAC2BBEE0030036D16C /* missions.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		8195ED912BBD8C0B0036D16C = {
 			isa = PBXGroup;
 			children = (
@@ -90,13 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				8195ED9D2BBD8C0B0036D16C /* MoonshotApp.swift */,
-				8195EDB52BC42E080036D16C /* Color-Theme.swift */,
-				8195EDB12BBEE56C0036D16C /* Bundle-Decodable.swift */,
+				8195EDA12BBD8C100036D16C /* Assets.xcassets */,
+				8161491E2BCABF5A00FF0ADA /* Helpers */,
 				8161491D2BC976A900FF0ADA /* Model */,
 				8161491C2BC9769900FF0ADA /* Views */,
-				8195EDA12BBD8C100036D16C /* Assets.xcassets */,
-				8195EDAB2BBEE0030036D16C /* astronauts.json */,
-				8195EDAC2BBEE0030036D16C /* missions.json */,
+				8161491F2BCABF6D00FF0ADA /* Data */,
 				8195EDA32BBD8C100036D16C /* Preview Content */,
 			);
 			path = Moonshot;
