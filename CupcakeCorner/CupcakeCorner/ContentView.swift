@@ -27,12 +27,14 @@ struct ContentView: View {
                 } // Section
                 
                 Section {
-                    Toggle("Any special requests?", isOn: $order.specialRequestEnabled.animation())
+                    Toggle("Any special requests?", isOn: $order.specialRequestEnabled)
                     
                     if order.specialRequestEnabled {
                         Toggle("Add extra frosting", isOn: $order.extraFrosting)
+                            .transition(.opacity)
                         
                         Toggle("Add extra sprinkles", isOn: $order.addSprinkles)
+                            .transition(.opacity)
                     }
                 } // Section
                 
@@ -42,6 +44,7 @@ struct ContentView: View {
                     }
                 }
             }
+            .animation(.default, value: order.specialRequestEnabled)
             .navigationTitle("Cupcake Corner")
         }
     }
