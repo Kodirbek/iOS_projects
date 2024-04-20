@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: - Properties
+    @State private var order = Order()
+    
+    // MARK: - Body
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -17,6 +22,10 @@ struct ContentView: View {
         }
         .padding()
     }
+    
+    // MARK: - Methods
+    
+    
 }
 
 #Preview {
