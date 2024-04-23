@@ -57,6 +57,10 @@ struct CheckoutView: View {
             return
         }
         
+        print("xx \(String(decoding: encoded, as: UTF8.self))")
+        // Debugging when using break point
+        // (lldb) p String(decoding: encoded, as: UTF8.self)
+        
         guard let url = URL(string: "https://reqres.in/api/cupcakes") else {
             print("Invalid URL!")
             return
