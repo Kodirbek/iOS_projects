@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class Order {
+class Order: Codable {
     enum CodingKeys: String, CodingKey {
         case _type = "type"
         case _quantity = "quantity"
