@@ -11,6 +11,7 @@ struct CheckoutView: View {
     
     // MARK: - Properties
     var order: Order
+    @State private var alertTitle = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
     
@@ -41,7 +42,7 @@ struct CheckoutView: View {
         .navigationTitle("Check out")
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
-        .alert("Thank you!", isPresented: $showingConfirmation) {
+        .alert(alertTitle, isPresented: $showingConfirmation) {
             Button("Ok") {
                 showingConfirmation = false
             }
@@ -74,10 +75,13 @@ struct CheckoutView: View {
             let (data, _)  = try await URLSession.shared.upload(for: request, from: encoded)
             
             let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
+            alertTitle = "Thank you!"
             confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
             showingConfirmation = true
         } catch {
-            print("Check out failed with error: \(error.localizedDescription)")
+            alertTitle = "Sorry!"
+            confirmationMessage = "Check out failed with error: \(error.localizedDescription)"
+            showingConfirmation = true
         }
     }
 }
