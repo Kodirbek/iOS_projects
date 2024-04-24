@@ -75,14 +75,22 @@ struct CheckoutView: View {
             let (data, _)  = try await URLSession.shared.upload(for: request, from: encoded)
             
             let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
-            alertTitle = "Thank you!"
-            confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
-            showingConfirmation = true
+            configureSuccessAlert(order: decodedOrder)
         } catch {
-            alertTitle = "Sorry!"
-            confirmationMessage = "Check out failed with error: \(error.localizedDescription)"
-            showingConfirmation = true
+            configureFailAlert(error: error)
         }
+    }
+    
+    private func configureSuccessAlert(order: Order) {
+        alertTitle = "Thank you!"
+        confirmationMessage = "Your order for \(order.quantity)x \(Order.types[order.type].lowercased()) cupcakes is on its way!"
+        showingConfirmation = true
+    }
+    
+    private func configureFailAlert(error: Error) {
+        alertTitle = "Sorry!"
+        confirmationMessage = "Check out failed with error: \(error.localizedDescription)"
+        showingConfirmation = true
     }
 }
 
