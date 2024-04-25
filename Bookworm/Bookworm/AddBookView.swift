@@ -20,29 +20,36 @@ struct AddBookView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
-                    TextField("Name of book", text: $title)
-                    TextField("Author's name", text: $author)
-                    
-                    Picker("Genre", selection: $genre) {
-                        ForEach(genres, id: \.self) {
-                            Text($0)
+            ZStack(alignment: .bottomTrailing) {
+                Form {
+                    Section {
+                        TextField("Name of book", text: $title)
+                        TextField("Author's name", text: $author)
+                        
+                        Picker("Genre", selection: $genre) {
+                            ForEach(genres, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        
+                        Picker("Rating", selection: $rating) {
+                            ForEach(1...5, id: \.self) {
+                                Text(String($0))
+                            }
                         }
                     }
                     
-                    Picker("Rating", selection: $rating) {
-                        ForEach(1...5, id: \.self) {
-                            Text(String($0))
-                        }
+                    Section("Write a review") {
+                        TextEditor(text: $review)
                     }
                 }
                 
-                Section("Write a review") {
-                    TextEditor(text: $review)
-                }
-                
-                
+                Button("Save") {}
+                    .padding(20)
+                    .background(.indigo)
+                    .foregroundStyle(.white)
+                    .clipShape(Circle())
+                    .padding(.horizontal, 10)
             }
             .navigationTitle("Add Book")
             .navigationBarTitleDisplayMode(.inline)
