@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct AddBookView: View {
+    
+    // MARK: - Properties
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
     @State private var title = ""
     @State private var author = ""
@@ -18,6 +21,8 @@ struct AddBookView: View {
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
+    
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
@@ -52,6 +57,7 @@ struct AddBookView: View {
                                        rating: rating)
                     
                     modelContext.insert(newBook)
+                    dismiss()
                 }
                     .padding(.horizontal, 15)
                     .padding(.vertical, 10)
