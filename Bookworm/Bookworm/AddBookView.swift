@@ -36,12 +36,10 @@ struct AddBookView: View {
                                 Text($0)
                             }
                         }
-                        
-                        Picker("Rating", selection: $rating) {
-                            ForEach(1...5, id: \.self) {
-                                Text(String($0))
-                            }
-                        }
+                    }
+                    
+                    Section("Rating") {
+                        RatingView(rating: $rating)
                     }
                     
                     Section("Write a review") {

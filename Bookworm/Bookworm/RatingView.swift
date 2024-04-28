@@ -29,10 +29,15 @@ struct RatingView: View {
             }
             
             ForEach(1...maximumRating, id: \.self) { number in
-                image(for: number)
-                    .foregroundStyle(number > rating ? offColor : onColor)
+                Button {
+                    rating = number
+                } label: {
+                    image(for: number)
+                        .foregroundStyle(number > rating ? offColor : onColor)
+                }
             }
         }
+        .buttonStyle(.plain)
     }
     
     // MARK: - Method
@@ -46,5 +51,5 @@ struct RatingView: View {
 }
 
 #Preview {
-    RatingView(rating: .constant(4))
+    RatingView(rating: .constant(3))
 }
