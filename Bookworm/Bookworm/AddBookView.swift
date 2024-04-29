@@ -66,6 +66,15 @@ struct AddBookView: View {
             }
             .navigationTitle("Add Book")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("Cancel")
+                    })
+                }
+            }
         }
     }
 }
