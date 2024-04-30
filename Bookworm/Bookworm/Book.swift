@@ -14,6 +14,7 @@ import SwiftData
     var genre: String
     var review: String
     var rating: Int
+    var date: Date = Date.now
     
     init(title: String, author: String, genre: String, review: String, rating: Int) {
         self.title = title
@@ -21,5 +22,9 @@ import SwiftData
         self.genre = genre
         self.review = review
         self.rating = rating
+    }
+    
+    var formattedDate: String {
+        return date.formatted(date: .abbreviated, time: .omitted)
     }
 }

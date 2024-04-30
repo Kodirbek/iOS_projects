@@ -22,7 +22,7 @@ struct AddBookView: View {
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
     var hasValidData: Bool {
-        return !title.isEmpty && !author.isEmpty
+        return !title.isEmpty && !author.isEmpty && !genre.isEmpty
     }
     
     

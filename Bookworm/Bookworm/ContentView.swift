@@ -34,6 +34,9 @@ struct ContentView: View {
                                     .font(.headline)
                                 Text(book.author)
                                     .foregroundStyle(.secondary)
+                                Text(book.formattedDate)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }
