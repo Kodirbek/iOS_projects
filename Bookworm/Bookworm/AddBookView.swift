@@ -21,6 +21,10 @@ struct AddBookView: View {
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
+    var hasValidData: Bool {
+        return !title.isEmpty && !author.isEmpty
+    }
+    
     
     // MARK: - Body
     var body: some View {
@@ -59,10 +63,11 @@ struct AddBookView: View {
                 }
                     .padding(.horizontal, 15)
                     .padding(.vertical, 10)
-                    .background(.blue)
+                    .background(hasValidData ? .blue : .gray)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal, 20)
+                    .disabled(!hasValidData)
             }
             .navigationTitle("Add Book")
             .navigationBarTitleDisplayMode(.inline)
