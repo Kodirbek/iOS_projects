@@ -14,6 +14,7 @@
 		81C5662F2BE222CA0055AC6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5662E2BE222CA0055AC6B /* User.swift */; };
 		81C566312BE223630055AC6B /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C566302BE223630055AC6B /* EditUserView.swift */; };
 		81C5664D2BE52B100055AC6B /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5664C2BE52B100055AC6B /* UsersView.swift */; };
+		81C5664F2BEA47DF0055AC6B /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5664E2BEA47DF0055AC6B /* Job.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		81C5662E2BE222CA0055AC6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		81C566302BE223630055AC6B /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		81C5664C2BE52B100055AC6B /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		81C5664E2BEA47DF0055AC6B /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				81C566222BE121830055AC6B /* ContentView.swift */,
 				81C5664C2BE52B100055AC6B /* UsersView.swift */,
 				81C5662E2BE222CA0055AC6B /* User.swift */,
+				81C5664E2BEA47DF0055AC6B /* Job.swift */,
 				81C566242BE121890055AC6B /* Assets.xcassets */,
 				81C566262BE121890055AC6B /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C5664D2BE52B100055AC6B /* UsersView.swift in Sources */,
+				81C5664F2BEA47DF0055AC6B /* Job.swift in Sources */,
 				81C566232BE121830055AC6B /* ContentView.swift in Sources */,
 				81C566312BE223630055AC6B /* EditUserView.swift in Sources */,
 				81C566212BE121830055AC6B /* SwiftDataProjectApp.swift in Sources */,
