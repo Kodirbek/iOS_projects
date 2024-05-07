@@ -27,6 +27,7 @@
 		81C566302BE223630055AC6B /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		81C5664C2BE52B100055AC6B /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		81C5664E2BEA47DF0055AC6B /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		81C566502BEA4CBA0055AC6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +60,7 @@
 		81C5661F2BE121830055AC6B /* SwiftDataProject */ = {
 			isa = PBXGroup;
 			children = (
+				81C566502BEA4CBA0055AC6B /* Info.plist */,
 				81C566202BE121830055AC6B /* SwiftDataProjectApp.swift */,
 				81C566302BE223630055AC6B /* EditUserView.swift */,
 				81C566222BE121830055AC6B /* ContentView.swift */,
@@ -291,6 +293,7 @@
 				DEVELOPMENT_TEAM = 89CKCN9RLX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftDataProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,6 +323,7 @@
 				DEVELOPMENT_TEAM = 89CKCN9RLX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftDataProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
