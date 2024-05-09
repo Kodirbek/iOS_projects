@@ -27,10 +27,22 @@ struct ContentView: View {
         let beginImage = CIImage(image: inputImage)
         
         let context = CIContext()
-        let currentFilter = CIFilter.sepiaTone()
+        let currentFilter = CIFilter.crystallize()
         
         currentFilter.inputImage = beginImage
-        currentFilter.intensity = 1
+        let amount = 1.0
+        let inputKeys = currentFilter.inputKeys
+        
+        if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(amount/2, forKey: kCIInputIntensityKey)}
+        if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(amount * 10, forKey: kCIInputRadiusKey)}
+        if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(amount * 5, forKey: kCIInputScaleKey)}
+        
+        guard let outputImage = currentFilter.outputImage,
+              let cgImage = context.createCGImage(outputImage,
+                                                  from: outputImage.extent) else { return }
+        
+        let uiImage = UIImage(cgImage: cgImage)
+        image = Image(uiImage: uiImage)
     }
 }
 
