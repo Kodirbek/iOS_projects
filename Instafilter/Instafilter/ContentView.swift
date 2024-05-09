@@ -15,9 +15,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            image?
-                .resizable()
-                .scaledToFit()
+            if image != nil {
+                image?
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                ContentUnavailableView("No Image",
+                                       systemImage: "person",
+                                       description: Text("There is no image yet")
+                )
+            }
         }
         .onAppear(perform: loadImage)
     }
@@ -27,7 +34,7 @@ struct ContentView: View {
         let beginImage = CIImage(image: inputImage)
         
         let context = CIContext()
-        let currentFilter = CIFilter.crystallize()
+        let currentFilter = CIFilter.sepiaTone()
         
         currentFilter.inputImage = beginImage
         let amount = 1.0
