@@ -5,27 +5,32 @@
 //  Created by kodirbek on 5/2/24.
 //
 
+import CoreImage
+import CoreImage.CIFilterBuiltins
 import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showingConfirmation = false
-    @State private var backgroundColor = Color.white
+    @State private var image: Image?
     
     var body: some View {
-        Button("Change color button") {
-            showingConfirmation.toggle()
+        VStack {
+            image?
+                .resizable()
+                .scaledToFit()
         }
-        .frame(width: 300, height: 200)
-        .background(backgroundColor)
-        .confirmationDialog("Change background", isPresented: $showingConfirmation) {
-            Button("Red") { backgroundColor = .red }
-            Button("Green") { backgroundColor = .green }
-            Button("Blue") { backgroundColor = .blue }
-            Button("Cancel", role: .cancel) {}
-        } message: {
-            Text("Select a new color")
-        }
+        .onAppear(perform: loadImage)
+    }
+    
+    func loadImage() {
+        let inputImage = UIImage(resource: .singapore)
+        let beginImage = CIImage(image: inputImage)
+        
+        let context = CIContext()
+        let currentFilter = CIFilter.sepiaTone()
+        
+        currentFilter.inputImage = beginImage
+        currentFilter.intensity = 1
     }
 }
 
