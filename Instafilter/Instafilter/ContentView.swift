@@ -10,35 +10,44 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var pickerItems = [PhotosPickerItem]()
-    @State private var selectedImages = [Image]()
+    @State private var processedImage: Image?
+    @State private var filterIntensity = 0.5
     
     var body: some View {
-        VStack {
-            PhotosPicker(selection: $pickerItems, maxSelectionCount: 3, matching: .any(of: [.images, .not(.screenshots)])) {
-                Label("Select a picture", systemImage: "photo")
-            }
-            .padding(.top, 50)
-            
-            ScrollView {
-                ForEach(0..<selectedImages.count, id: \.self) { i in
-                    selectedImages[i]
+        NavigationStack {
+            VStack {
+                Spacer()
+                
+                if let processedImage {
+                    processedImage
                         .resizable()
                         .scaledToFit()
+                } else {
+                    ContentUnavailableView("No Picture", systemImage: "photo.badge.plus", description: Text("Tap to import a photo"))
                 }
-            }
-        }
-        .onChange(of: pickerItems) {
-            Task {
-                selectedImages.removeAll()
                 
-                for item in pickerItems {
-                    if let loadedImage = try await item.loadTransferable(type: Image.self) {
-                        selectedImages.append(loadedImage)
-                    }
+                Spacer()
+                
+                HStack {
+                    Text("Intensity")
+                    Slider(value: $filterIntensity)
+                }
+                .padding(.vertical)
+                
+                HStack {
+                    Button("Change Filter", action: changeFilter)
+                    
+                    Spacer()
+                    
+                    // share the picture
                 }
             }
+            .padding([.horizontal, .bottom])
+            .navigationTitle("Instafilter")
         }
+    }
+    
+    func changeFilter() {
     }
     
 }
