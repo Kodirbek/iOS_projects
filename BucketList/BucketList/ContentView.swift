@@ -32,7 +32,7 @@ struct ContentView: View {
                     Map(initialPosition: startPosition) {
                         ForEach(locations) { location in
                             Annotation(location.name,
-                                       coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)) {
+                                       coordinate: location.coordinate) {
                                 Image(systemName: "mappin.and.ellipse")
                                     .imageScale(.large)
                                     .foregroundStyle(.black)
