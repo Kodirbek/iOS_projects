@@ -9,21 +9,18 @@ import LocalAuthentication
 import MapKit
 import SwiftUI
 
-struct Location: Identifiable {
-    let id = UUID()
-    var name: String
-    var coordinate: CLLocationCoordinate2D
-}
-
-
 struct ContentView: View {
     
-    @State private var isUnlocked = false
+    @State private var isUnlocked = true
+    @State private var locations = [Location]()
     
-    let locations = [
-        Location(name: "Buckingham Palace", coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141)),
-        Location(name: "Tower of London", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076))
-    ]
+    let startPosition = MapCameraPosition.region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 56, longitude: -3),
+            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+        )
+    )
+    
     
     var body: some View {
         ZStack {
@@ -32,9 +29,10 @@ struct ContentView: View {
             
             if isUnlocked {
                 MapReader { proxy in
-                    Map {
+                    Map(initialPosition: startPosition) {
                         ForEach(locations) { location in
-                            Annotation(location.name, coordinate: location.coordinate) {
+                            Annotation(location.name,
+                                       coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)) {
                                 Image(systemName: "mappin.and.ellipse")
                                     .imageScale(.large)
                                     .foregroundStyle(.black)
@@ -46,7 +44,8 @@ struct ContentView: View {
                     .mapStyle(.hybrid(elevation: .realistic))
                     .onTapGesture { position in
                         if let coordinate = proxy.convert(position, from: .local) {
-                            print(coordinate)
+                            let newLocation = Location(id: UUID(), name: "New location", description: "", latitude: coordinate.latitude, longitude: coordinate.longitude)
+                            locations.append(newLocation)
                         }
                     }
                 }
