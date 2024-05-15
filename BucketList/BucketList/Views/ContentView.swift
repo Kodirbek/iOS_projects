@@ -5,7 +5,6 @@
 //  Created by kodirbek on 5/13/24.
 //
 
-import LocalAuthentication
 import MapKit
 import SwiftUI
 
@@ -16,12 +15,6 @@ struct ContentView: View {
     @State private var locations = [Location]()
     @State private var selectedPlace: Location?
     
-    let startPosition = MapCameraPosition.region(
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 56, longitude: -3),
-            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
-        )
-    )
     
     // MARK: - Body
     var body: some View {
@@ -57,33 +50,24 @@ struct ContentView: View {
                     }
                 }
             } else {
-                CustomContentUnavailableView(onTryAgain: authenticate)
+                CustomContentUnavailableView(onTryAgain: {
+                    Authenticator.authenticate { isAuth in
+                        isUnlocked = isAuth
+                    }
+                })
             }
             
         }
-        .onAppear(perform: authenticate)
+        .onAppear {
+            Authenticator.authenticate { isAuth in
+                isUnlocked = isAuth
+            }
+        }
         
     }
     
     // MARK: - Methods
-    private func authenticate() {
-        let context = LAContext()
-        var error: NSError?
-        
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "We need to unlock your data."
-            
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                if success {
-                    isUnlocked = true
-                } else {
-                    isUnlocked = false
-                }
-            }
-        } else {
-            // handle biometric auth fail case (e.g. password)
-        }
-    }
+    
 }
 
 // MARK: - Preview
