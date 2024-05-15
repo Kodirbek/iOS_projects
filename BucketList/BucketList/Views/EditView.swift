@@ -38,7 +38,9 @@ struct EditView: View {
             Form {
                 Section {
                     TextField("Place name", text: $name)
+                        .autocorrectionDisabled()
                     TextField("Description", text: $description)
+                        .autocorrectionDisabled()
                 }
                 
                 Section("Nearby…") {
@@ -48,7 +50,7 @@ struct EditView: View {
                                 Text(page.title)
                                     .font(.headline)
                                 + Text(": ") +
-                                Text("Page description here")
+                                Text(page.description)
                                     .italic()
                             }
                         case .loading:
