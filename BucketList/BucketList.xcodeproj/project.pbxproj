@@ -18,6 +18,7 @@
 		81C566772BF477390055AC6B /* CustomAnnotationMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C566762BF477390055AC6B /* CustomAnnotationMark.swift */; };
 		81C5667A2BF47C380055AC6B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C566792BF47C380055AC6B /* Constants.swift */; };
 		81C5667C2BF47CA30055AC6B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5667B2BF47CA30055AC6B /* Authenticator.swift */; };
+		81C5667E2BF482BF0055AC6B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5667D2BF482BF0055AC6B /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		81C566762BF477390055AC6B /* CustomAnnotationMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationMark.swift; sourceTree = "<group>"; };
 		81C566792BF47C380055AC6B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		81C5667B2BF47CA30055AC6B /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		81C5667D2BF482BF0055AC6B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				81C5665F2BF1D0D20055AC6B /* ContentView.swift */,
 				81C5666D2BF3B10C0055AC6B /* EditView.swift */,
 				81C566732BF4754D0055AC6B /* CustomContentUnavailableView.swift */,
+				81C5667D2BF482BF0055AC6B /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				81C5666E2BF3B10C0055AC6B /* EditView.swift in Sources */,
 				81C566742BF4754D0055AC6B /* CustomContentUnavailableView.swift in Sources */,
 				81C5665E2BF1D0D20055AC6B /* BucketListApp.swift in Sources */,
+				81C5667E2BF482BF0055AC6B /* MapView.swift in Sources */,
 				81C5667A2BF47C380055AC6B /* Constants.swift in Sources */,
 				81C5667C2BF47CA30055AC6B /* Authenticator.swift in Sources */,
 			);
