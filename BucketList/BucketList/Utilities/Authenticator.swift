@@ -10,23 +10,23 @@ import LocalAuthentication
 
 class Authenticator {
     
-    static func authenticate(completionHandler: @escaping (Bool) -> Void) {
+    static func authenticate() async -> Bool {
         let context = LAContext()
         var error: NSError?
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "We need to unlock your data."
             
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                if success {
-                    completionHandler(true)
-                } else {
-                    print("Authentication failed, error: \(authenticationError?.localizedDescription ?? "")")
-                    completionHandler(false)
-                }
+            do {
+                let success = try await context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason)
+                return success
+            } catch {
+                print("Authentication failed, error: \(error.localizedDescription)")
+                return false
             }
         } else {
             // handle biometric auth fail case (e.g. password)
+            return false
         }
     }
 }

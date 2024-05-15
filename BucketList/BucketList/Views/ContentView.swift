@@ -30,16 +30,16 @@ struct ContentView: View {
                 }
             } else {
                 CustomContentUnavailableView(onTryAgain: {
-                    Authenticator.authenticate { isAuth in
-                        isUnlocked = isAuth
+                    Task {
+                        isUnlocked = await Authenticator.authenticate()
                     }
                 })
             }
             
         }
         .onAppear {
-            Authenticator.authenticate { isAuth in
-                isUnlocked = isAuth
+            Task {
+                isUnlocked = await Authenticator.authenticate()
             }
         }
         
