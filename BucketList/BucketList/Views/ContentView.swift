@@ -62,16 +62,7 @@ struct ContentView: View {
                     }
                 }
             } else {
-                ContentUnavailableView {
-                    Label("Authentication failed!", systemImage: "map.fill")
-                } description: {
-                    Text("Map will be presented once authentication is successful.")
-                } actions: {
-                    Button("Try Again") {
-                        authenticate()
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
+                CustomContentUnavailableView(onTryAgain: authenticate)
             }
             
         }
