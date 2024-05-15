@@ -11,7 +11,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var isUnlocked = true
+    // MARK: - Properties
+    @State private var isUnlocked = false
     @State private var locations = [Location]()
     @State private var selectedPlace: Location?
     
@@ -22,7 +23,7 @@ struct ContentView: View {
         )
     )
     
-    
+    // MARK: - Body
     var body: some View {
         ZStack {
             Color.white
@@ -78,29 +79,28 @@ struct ContentView: View {
         
     }
     
-    func authenticate() {
+    // MARK: - Methods
+    private func authenticate() {
         let context = LAContext()
         var error: NSError?
         
-        // check whether biometric authentication is possible
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            // it's possible, so go ahead and use it
             let reason = "We need to unlock your data."
             
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                // authentication has now completed
                 if success {
                     isUnlocked = true
                 } else {
-                    // there was a problem
+                    isUnlocked = false
                 }
             }
         } else {
-            // no biometrics
+            // handle biometric auth fail case (e.g. password)
         }
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }
