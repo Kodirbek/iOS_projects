@@ -35,13 +35,8 @@ struct ContentView: View {
                         ForEach(locations) { location in
                             Annotation(location.name,
                                        coordinate: location.coordinate) {
-                                Image(systemName: "mappin.and.ellipse")
-                                    .imageScale(.large)
-                                    .foregroundStyle(.black)
-                                    .shadow(color: .white, radius: 8, x: 4, y: 0)
-                                    .onLongPressGesture {
-                                        selectedPlace = location
-                                    }
+                                CustomAnnotationMark(selectedPlace: $selectedPlace,
+                                                     location: location)
                             }
                         }
                     }
