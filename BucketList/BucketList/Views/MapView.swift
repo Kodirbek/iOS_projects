@@ -27,7 +27,6 @@ struct MapView: View {
                 }
             }
         }
-        .padding(.vertical)
         .mapStyle(.hybrid(elevation: .realistic))
         .onTapGesture { position in
             if let coordinate = proxy.convert(position, from: .local) {

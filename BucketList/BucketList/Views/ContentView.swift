@@ -18,24 +18,24 @@ struct ContentView: View {
     
     // MARK: - Body
     var body: some View {
-        ZStack {
-            Color.white
-                .ignoresSafeArea()
-            
-            if isUnlocked {
-                MapReader { proxy in
-                    MapView(proxy: proxy,
-                            locations: $locations,
-                            selectedPlace: $selectedPlace)
-                }
-            } else {
-                CustomContentUnavailableView(onTryAgain: {
-                    Task {
-                        isUnlocked = await Authenticator.authenticate()
+        NavigationStack {
+            VStack {
+                if isUnlocked {
+                    MapReader { proxy in
+                        MapView(proxy: proxy,
+                                locations: $locations,
+                                selectedPlace: $selectedPlace)
                     }
-                })
+                } else {
+                    CustomContentUnavailableView(onTryAgain: {
+                        Task {
+                            isUnlocked = await Authenticator.authenticate()
+                        }
+                    })
+                }
             }
-            
+            .navigationTitle("Bucket list")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
             Task {
