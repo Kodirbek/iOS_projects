@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EditView: View {
+    
+    
+    // MARK: - Properties
     @Environment(\.dismiss) var dismiss
     var location: Location
     var onSave: (Location) -> Void
@@ -15,6 +18,11 @@ struct EditView: View {
     @State private var name: String
     @State private var description: String
     
+    @State private var loadingState = LoadingState.loading
+    @State private var pages = [Page]()
+    
+    
+    // MARK: - Init
     init(location: Location, onSave: @escaping (Location) -> Void) {
         self.location = location
         self.onSave = onSave
@@ -23,12 +31,31 @@ struct EditView: View {
         _description = State(initialValue: location.description)
     }
     
+    
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             Form {
                 Section {
                     TextField("Place name", text: $name)
                     TextField("Description", text: $description)
+                }
+                
+                Section("Nearby…") {
+                    switch loadingState {
+                        case .loaded:
+                            ForEach(pages, id: \.pageid) { page in
+                                Text(page.title)
+                                    .font(.headline)
+                                + Text(": ") +
+                                Text("Page description here")
+                                    .italic()
+                            }
+                        case .loading:
+                            Text("Loading…")
+                        case .failed:
+                            Text("Please try again later.")
+                    }
                 }
             }
             .navigationTitle("Place details")
@@ -43,10 +70,22 @@ struct EditView: View {
                     dismiss()
                 }
             }
+            .task {
+                if let pages = await FetchService.fetchNearbyPlaces(
+                    lat: location.latitude,
+                    long: location.longitude) {
+                    self.pages = pages
+                    loadingState = .loaded
+                } else {
+                    loadingState = .failed
+                }
+            }
         }
     }
 }
 
+
+// MARK: - Preview
 #Preview {
     EditView(location: .example) { _ in }
 }

@@ -19,6 +19,8 @@
 		81C5667A2BF47C380055AC6B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C566792BF47C380055AC6B /* Constants.swift */; };
 		81C5667C2BF47CA30055AC6B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5667B2BF47CA30055AC6B /* Authenticator.swift */; };
 		81C5667E2BF482BF0055AC6B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5667D2BF482BF0055AC6B /* MapView.swift */; };
+		81C566802BF489BF0055AC6B /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5667F2BF489BF0055AC6B /* LoadingState.swift */; };
+		81C566822BF48A7F0055AC6B /* FetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C566812BF48A7F0055AC6B /* FetchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		81C566792BF47C380055AC6B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		81C5667B2BF47CA30055AC6B /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		81C5667D2BF482BF0055AC6B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		81C5667F2BF489BF0055AC6B /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		81C566812BF48A7F0055AC6B /* FetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 				81C566612BF1D0D50055AC6B /* Assets.xcassets */,
 				81C566792BF47C380055AC6B /* Constants.swift */,
 				81C5667B2BF47CA30055AC6B /* Authenticator.swift */,
+				81C5667F2BF489BF0055AC6B /* LoadingState.swift */,
+				81C566812BF48A7F0055AC6B /* FetchService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C566602BF1D0D20055AC6B /* ContentView.swift in Sources */,
+				81C566822BF48A7F0055AC6B /* FetchService.swift in Sources */,
 				81C566772BF477390055AC6B /* CustomAnnotationMark.swift in Sources */,
 				81C566702BF3B2DC0055AC6B /* Result.swift in Sources */,
 				81C5666C2BF3AEC50055AC6B /* Location.swift in Sources */,
@@ -203,6 +210,7 @@
 				81C5667E2BF482BF0055AC6B /* MapView.swift in Sources */,
 				81C5667A2BF47C380055AC6B /* Constants.swift in Sources */,
 				81C5667C2BF47CA30055AC6B /* Authenticator.swift in Sources */,
+				81C566802BF489BF0055AC6B /* LoadingState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
