@@ -15,6 +15,12 @@ struct ContentView: View {
     @State private var locations = [Location]()
     @State private var selectedPlace: Location?
     
+    @State private var viewModel: ContentViewVMProtocol
+    
+    init(viewModel: ContentViewVMProtocol) {
+        self.viewModel  = viewModel
+    }
+    
     
     // MARK: - Body
     var body: some View {
@@ -51,5 +57,5 @@ struct ContentView: View {
 
 // MARK: - Preview
 #Preview {
-    ContentView()
+    ContentView(viewModel: ContentViewVM())
 }
