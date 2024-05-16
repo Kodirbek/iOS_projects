@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import MapKit
+import CoreLocation
 
 struct Location: Codable, Equatable, Identifiable {
     var id: UUID
