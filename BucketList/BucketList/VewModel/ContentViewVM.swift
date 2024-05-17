@@ -10,8 +10,19 @@ import CoreLocation
 
 @Observable 
 class ContentViewVM {
-    private(set) var locations = [Location]()
+    private(set) var locations: [Location]
     var selectedPlace: Location?
+    let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
+    
+    init() {
+        do {
+            let data = try Data(contentsOf: savePath)
+            locations = try JSONDecoder().decode([Location].self, from: data)
+        } catch {
+            locations = []
+        }
+    }
+    
     
     func addLocation(at point: CLLocationCoordinate2D) {
         let newLocation = Location(id: UUID(), 
@@ -20,6 +31,7 @@ class ContentViewVM {
                                    latitude: point.latitude,
                                    longitude: point.longitude)
         locations.append(newLocation)
+        save()
     }
     
     func update(location: Location) {
@@ -27,6 +39,16 @@ class ContentViewVM {
         
         if let index = locations.firstIndex(of: selectedPlace) {
             locations[index] = location
+        }
+        save()
+    }
+    
+    func save() {
+        do {
+            let data = try JSONEncoder().encode(locations)
+            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Unable to save data.")
         }
     }
 }
