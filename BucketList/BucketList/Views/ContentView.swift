@@ -15,9 +15,9 @@ struct ContentView: View {
     @State private var locations = [Location]()
     @State private var selectedPlace: Location?
     
-    @State private var viewModel: ContentViewVMProtocol
+    @State private var viewModel: ContentViewVM
     
-    init(viewModel: ContentViewVMProtocol) {
+    init(viewModel: ContentViewVM) {
         self.viewModel  = viewModel
     }
     
@@ -29,8 +29,7 @@ struct ContentView: View {
                 if isUnlocked {
                     MapReader { proxy in
                         MapView(proxy: proxy,
-                                locations: $locations,
-                                selectedPlace: $selectedPlace)
+                                viewModel: viewModel)
                     }
                 } else {
                     CustomContentUnavailableView(onTryAgain: {

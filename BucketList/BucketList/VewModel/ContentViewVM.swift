@@ -7,13 +7,9 @@
 
 import Foundation
 
-protocol ContentViewVMProtocol {
-    var locations: [Location] { get }
-    var selectedPlace: Location? { get }
-}
 
 @Observable 
-class ContentViewVM: ContentViewVMProtocol {
+class ContentViewVM {
     var locations = [Location]()
     var selectedPlace: Location?
 }

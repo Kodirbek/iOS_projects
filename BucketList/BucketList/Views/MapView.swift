@@ -12,17 +12,16 @@ struct MapView: View {
     
     // MARK: - Properties
     var proxy: MapProxy
-    @Binding var locations: [Location]
-    @Binding var selectedPlace: Location?
+    @Bindable var viewModel: ContentViewVM
     
     
     // MARK: - Body
     var body: some View {
         Map(initialPosition: startPosition) {
-            ForEach(locations) { location in
+            ForEach(viewModel.locations) { location in
                 Annotation(location.name,
                            coordinate: location.coordinate) {
-                    CustomAnnotationMark(selectedPlace: $selectedPlace,
+                    CustomAnnotationMark(selectedPlace: $viewModel.selectedPlace,
                                          location: location)
                 }
             }
@@ -31,13 +30,13 @@ struct MapView: View {
         .onTapGesture { position in
             if let coordinate = proxy.convert(position, from: .local) {
                 let newLocation = Location(id: UUID(), name: "New location", description: "", latitude: coordinate.latitude, longitude: coordinate.longitude)
-                locations.append(newLocation)
+                viewModel.locations.append(newLocation)
             }
         }
-        .sheet(item: $selectedPlace) { place in
+        .sheet(item: $viewModel.selectedPlace) { place in
             EditView(location: place) { newLocation in
-                if let index = locations.firstIndex(of: place) {
-                    locations[index] = newLocation
+                if let index = viewModel.locations.firstIndex(of: place) {
+                    viewModel.locations[index] = newLocation
                 }
             }
         }
@@ -48,7 +47,6 @@ struct MapView: View {
 #Preview {
     MapReader { proxy in
         return MapView(proxy: proxy,
-                locations: .constant([]),
-                selectedPlace: .constant(.example))
+                       viewModel: ContentViewVM())
     }
 }
