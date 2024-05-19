@@ -10,10 +10,15 @@ import CoreLocation
 
 @Observable 
 class ContentViewVM {
+    
+    // Properties
+    var isUnlocked = false
     private(set) var locations: [Location]
     var selectedPlace: Location?
     let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
     
+    
+    // Init (read locations from directory)
     init() {
         do {
             let data = try Data(contentsOf: savePath)
@@ -23,7 +28,7 @@ class ContentViewVM {
         }
     }
     
-    
+    // Methods
     func addLocation(at point: CLLocationCoordinate2D) {
         let newLocation = Location(id: UUID(), 
                                    name: "New location",

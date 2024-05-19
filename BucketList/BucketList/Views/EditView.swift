@@ -43,6 +43,12 @@ struct EditView: View {
                         .autocorrectionDisabled()
                 }
                 
+                Section {
+                    Button("Remove", role: .destructive) {
+                        // delete
+                    }
+                }
+                
                 Section("Nearby…") {
                     switch loadingState {
                         case .loaded:

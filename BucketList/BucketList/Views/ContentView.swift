@@ -11,10 +11,6 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: - Properties
-    @State private var isUnlocked = false
-    @State private var locations = [Location]()
-    @State private var selectedPlace: Location?
-    
     @State private var viewModel: ContentViewVM
     
     init(viewModel: ContentViewVM) {
@@ -26,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if isUnlocked {
+                if viewModel.isUnlocked {
                     MapReader { proxy in
                         MapView(proxy: proxy,
                                 viewModel: viewModel)
@@ -34,7 +30,7 @@ struct ContentView: View {
                 } else {
                     CustomContentUnavailableView(onTryAgain: {
                         Task {
-                            isUnlocked = await Authenticator.authenticate()
+                            viewModel.isUnlocked = await Authenticator.authenticate()
                         }
                     })
                 }
@@ -44,7 +40,7 @@ struct ContentView: View {
         }
         .onAppear {
             Task {
-                isUnlocked = await Authenticator.authenticate()
+                viewModel.isUnlocked = await Authenticator.authenticate()
             }
         }
         
