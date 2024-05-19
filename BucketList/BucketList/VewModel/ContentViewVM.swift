@@ -12,7 +12,7 @@ import CoreLocation
 class ContentViewVM {
     
     // Properties
-    var isUnlocked = false
+    var isUnlocked = true
     private(set) var locations: [Location]
     var selectedPlace: Location?
     let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
@@ -30,7 +30,7 @@ class ContentViewVM {
     
     // Methods
     func addLocation(at point: CLLocationCoordinate2D) {
-        let newLocation = Location(id: UUID(), 
+        let newLocation = Location(id: UUID(),
                                    name: "New location",
                                    description: "",
                                    latitude: point.latitude,
@@ -44,6 +44,15 @@ class ContentViewVM {
         
         if let index = locations.firstIndex(of: selectedPlace) {
             locations[index] = location
+        }
+        save()
+    }
+    
+    func remove(location: Location) {
+        guard let selectedPlace else { return }
+        
+        if let index = locations.firstIndex(of: selectedPlace) {
+            locations.remove(at: index)
         }
         save()
     }

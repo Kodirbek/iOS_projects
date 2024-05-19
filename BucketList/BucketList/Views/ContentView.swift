@@ -46,8 +46,6 @@ struct ContentView: View {
         
     }
     
-    // MARK: - Methods
-    
 }
 
 // MARK: - Preview
