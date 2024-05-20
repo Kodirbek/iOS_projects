@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		812AF2132BFB7F7F003B0419 /* MapStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF2122BFB7F7F003B0419 /* MapStyles.swift */; };
 		81C5665E2BF1D0D20055AC6B /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5665D2BF1D0D20055AC6B /* BucketListApp.swift */; };
 		81C566602BF1D0D20055AC6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5665F2BF1D0D20055AC6B /* ContentView.swift */; };
 		81C566622BF1D0D50055AC6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C566612BF1D0D50055AC6B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		812AF2122BFB7F7F003B0419 /* MapStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStyles.swift; sourceTree = "<group>"; };
 		81C5665A2BF1D0D10055AC6B /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C5665D2BF1D0D20055AC6B /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		81C5665F2BF1D0D20055AC6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				81C5667B2BF47CA30055AC6B /* Authenticator.swift */,
 				81C5667F2BF489BF0055AC6B /* LoadingState.swift */,
 				81C566812BF48A7F0055AC6B /* FetchService.swift */,
+				812AF2122BFB7F7F003B0419 /* MapStyles.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				81C566742BF4754D0055AC6B /* CustomContentUnavailableView.swift in Sources */,
 				81C5665E2BF1D0D20055AC6B /* BucketListApp.swift in Sources */,
 				81C5667E2BF482BF0055AC6B /* MapView.swift in Sources */,
+				812AF2132BFB7F7F003B0419 /* MapStyles.swift in Sources */,
 				81C5667A2BF47C380055AC6B /* Constants.swift in Sources */,
 				81C5667C2BF47CA30055AC6B /* Authenticator.swift in Sources */,
 				81C566802BF489BF0055AC6B /* LoadingState.swift in Sources */,
