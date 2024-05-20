@@ -35,7 +35,10 @@ struct MapView: View {
         .sheet(item: $viewModel.selectedPlace) { place in
             EditView(location: place) {
                 viewModel.update(location: $0)
+            } onDelete: {
+                viewModel.remove(location: $0)
             }
+
         }
     }
 }

@@ -14,6 +14,7 @@ struct EditView: View {
     @Environment(\.dismiss) var dismiss
     var location: Location
     var onSave: (Location) -> Void
+    var onDelete: (Location) -> Void
     
     @State private var name: String
     @State private var description: String
@@ -23,13 +24,17 @@ struct EditView: View {
     
     
     // MARK: - Init
-    init(location: Location, onSave: @escaping (Location) -> Void) {
-        self.location = location
-        self.onSave = onSave
-        
-        _name = State(initialValue: location.name)
-        _description = State(initialValue: location.description)
-    }
+    init(
+        location: Location,
+        onSave: @escaping (Location) -> Void,
+        onDelete: @escaping (Location) -> Void) {
+            self.location = location
+            self.onSave = onSave
+            self.onDelete = onDelete
+            
+            _name = State(initialValue: location.name)
+            _description = State(initialValue: location.description)
+        }
     
     
     // MARK: - Body
@@ -45,7 +50,8 @@ struct EditView: View {
                 
                 Section {
                     Button("Remove", role: .destructive) {
-                        // delete
+                        onDelete(location)
+                        dismiss()
                     }
                 }
                 
@@ -95,5 +101,5 @@ struct EditView: View {
 
 // MARK: - Preview
 #Preview {
-    EditView(location: .example) { _ in }
+    EditView(location: .example) { _ in } onDelete: { _ in }
 }
