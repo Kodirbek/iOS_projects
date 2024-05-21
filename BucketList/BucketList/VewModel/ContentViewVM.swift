@@ -13,6 +13,7 @@ class ContentViewVM {
     
     // Properties
     var isUnlocked = true
+    var selectedMapStyle: MapStyle = .hybrid
     private(set) var locations: [Location]
     var selectedPlace: Location?
     let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
