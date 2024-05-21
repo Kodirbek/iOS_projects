@@ -6,14 +6,14 @@
 //
 
 import Foundation
-import CoreLocation
+import _MapKit_SwiftUI
 
 @Observable 
 class ContentViewVM {
     
     // Properties
     var isUnlocked = true
-    var selectedMapStyle: MapStyle = .hybrid
+    private(set) var map: MapStyle = .hybrid
     private(set) var locations: [Location]
     var selectedPlace: Location?
     let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
@@ -65,5 +65,9 @@ class ContentViewVM {
         } catch {
             print("Unable to save data.")
         }
+    }
+    
+    func changeMapStyle(to style: MapStyle) {
+        map = style
     }
 }

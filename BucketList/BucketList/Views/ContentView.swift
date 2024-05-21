@@ -37,6 +37,20 @@ struct ContentView: View {
             }
             .navigationTitle("Bucket list")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Menu {
+                    ForEach(MapStyle.allCases, id: \.self) { style in
+                        Button(action: {
+                            viewModel.changeMapStyle(to: style)
+                        }) {
+                            Text(style.rawValue)
+                        }
+                    }
+                } label: {
+                    Text("Map Style")
+                        .font(.system(size: 15))
+                }
+            }
         }
         .onAppear {
             Task {

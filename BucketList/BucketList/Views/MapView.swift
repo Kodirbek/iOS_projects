@@ -26,7 +26,7 @@ struct MapView: View {
                 }
             }
         }
-        .mapStyle(viewModel.selectedMapStyle.mapStyle)
+        .mapStyle(viewModel.map.mapStyle)
         .onTapGesture { position in
             if let coordinate = proxy.convert(position, from: .local) {
                 viewModel.addLocation(at: coordinate)
