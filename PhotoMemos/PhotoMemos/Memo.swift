@@ -11,7 +11,7 @@ import SwiftData
 @Model
 class Memo {
     var name: String
-    var imageData: Data
+    @Attribute(.externalStorage) var imageData: Data
     
     init(name: String, imageData: Data) {
         self.name = name
