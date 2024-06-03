@@ -29,8 +29,12 @@ struct SaveImageView: View {
                 downloadedImage?
                     .resizable()
                     .scaledToFit()
+                    .padding(.bottom, 20)
                 
                 TextField("Name of image", text: $name)
+                    .textFieldStyle(.roundedBorder)
+                
+                Spacer()
             }
             .padding([.horizontal, .bottom])
             .toolbar {
@@ -49,6 +53,7 @@ struct SaveImageView: View {
                     }, label: {
                         Text("Save")
                     })
+                    .disabled(name.isEmpty)
                 }
             }
         }
