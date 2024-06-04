@@ -26,22 +26,29 @@ struct MemoListView: View {
             } else {
                 List {
                     ForEach(memos) { memo in
-                        HStack {
-                            Text(memo.name)
-                                .font(.title3)
-                            
-                            Spacer()
-                            
-                            if let uiImage = UIImage(data: memo.imageData) {
-                                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                    .scaledToFit()
+                        NavigationLink(value: memo) {
+                            HStack {
+                                Text(memo.name)
+                                    .font(.title3)
+                                
+                                Spacer()
+                                
+                                if let uiImage = UIImage(data: memo.imageData) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .scaledToFit()
+                                }
                             }
                         }
                     }
                 }
                 .scrollBounceBehavior(.basedOnSize)
+                .navigationDestination(for: Memo.self) { memo in
+                    DetailView(memo: memo)
+                }
+                .navigationTitle("Memo List")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }
