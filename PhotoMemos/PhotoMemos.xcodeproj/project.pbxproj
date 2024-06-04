@@ -14,6 +14,7 @@
 		812AF2492C0754E4003B0419 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF2482C0754E4003B0419 /* Memo.swift */; };
 		812AF2652C0DF634003B0419 /* SaveImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF2642C0DF634003B0419 /* SaveImageView.swift */; };
 		812AF2672C0F4304003B0419 /* AddMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF2662C0F4304003B0419 /* AddMemoView.swift */; };
+		812AF2692C0F441E003B0419 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF2682C0F441D003B0419 /* MemoListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		812AF2482C0754E4003B0419 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		812AF2642C0DF634003B0419 /* SaveImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImageView.swift; sourceTree = "<group>"; };
 		812AF2662C0F4304003B0419 /* AddMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoView.swift; sourceTree = "<group>"; };
+		812AF2682C0F441D003B0419 /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				812AF23C2C062551003B0419 /* ContentView.swift */,
 				812AF2662C0F4304003B0419 /* AddMemoView.swift */,
 				812AF2642C0DF634003B0419 /* SaveImageView.swift */,
+				812AF2682C0F441D003B0419 /* MemoListView.swift */,
 				812AF23E2C062557003B0419 /* Assets.xcassets */,
 				812AF2402C062557003B0419 /* Preview Content */,
 				812AF2482C0754E4003B0419 /* Memo.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				812AF2492C0754E4003B0419 /* Memo.swift in Sources */,
 				812AF23D2C062551003B0419 /* ContentView.swift in Sources */,
+				812AF2692C0F441E003B0419 /* MemoListView.swift in Sources */,
 				812AF2672C0F4304003B0419 /* AddMemoView.swift in Sources */,
 				812AF23B2C062551003B0419 /* PhotoMemosApp.swift in Sources */,
 				812AF2652C0DF634003B0419 /* SaveImageView.swift in Sources */,
