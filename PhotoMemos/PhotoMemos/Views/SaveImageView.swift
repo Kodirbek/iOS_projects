@@ -47,7 +47,7 @@ struct SaveImageView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        let newMemo = Memo(name: name, imageData: imageData ?? Data())
+                        let newMemo = Memo(name: name, latitude: 0.0, longitude: 0.0, imageData: imageData ?? Data())
                         modelContext.insert(newMemo)
                         dismiss()
                     }, label: {

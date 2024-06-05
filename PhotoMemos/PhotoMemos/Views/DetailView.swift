@@ -31,5 +31,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(memo: Memo(name: "sample name", imageData: Data()))
+    DetailView(memo: Memo(name: "sample name", latitude: 0.0, longitude: 0.0, imageData: Data()))
 }
