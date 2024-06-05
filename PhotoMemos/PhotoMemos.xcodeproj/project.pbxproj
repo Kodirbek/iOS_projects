@@ -16,6 +16,7 @@
 		812AF2672C0F4304003B0419 /* AddMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF2662C0F4304003B0419 /* AddMemoView.swift */; };
 		812AF2692C0F441E003B0419 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF2682C0F441D003B0419 /* MemoListView.swift */; };
 		812AF26D2C0F463F003B0419 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF26C2C0F463F003B0419 /* DetailView.swift */; };
+		812AF2702C1093F8003B0419 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812AF26F2C1093F8003B0419 /* LocationFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		812AF2662C0F4304003B0419 /* AddMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoView.swift; sourceTree = "<group>"; };
 		812AF2682C0F441D003B0419 /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
 		812AF26C2C0F463F003B0419 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		812AF26F2C1093F8003B0419 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				812AF23A2C062551003B0419 /* PhotoMemosApp.swift */,
+				812AF26E2C1093D3003B0419 /* Location */,
 				812AF26B2C0F4606003B0419 /* Data */,
 				812AF26A2C0F45F3003B0419 /* Views */,
 				812AF23E2C062557003B0419 /* Assets.xcassets */,
@@ -96,6 +99,14 @@
 				812AF2482C0754E4003B0419 /* Memo.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		812AF26E2C1093D3003B0419 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				812AF26F2C1093F8003B0419 /* LocationFetcher.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			files = (
 				812AF2492C0754E4003B0419 /* Memo.swift in Sources */,
 				812AF23D2C062551003B0419 /* ContentView.swift in Sources */,
+				812AF2702C1093F8003B0419 /* LocationFetcher.swift in Sources */,
 				812AF2692C0F441E003B0419 /* MemoListView.swift in Sources */,
 				812AF26D2C0F463F003B0419 /* DetailView.swift in Sources */,
 				812AF2672C0F4304003B0419 /* AddMemoView.swift in Sources */,
@@ -311,6 +323,7 @@
 				DEVELOPMENT_TEAM = 89CKCN9RLX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to your location that will be saved with memos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -340,6 +353,7 @@
 				DEVELOPMENT_TEAM = 89CKCN9RLX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to your location that will be saved with memos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
