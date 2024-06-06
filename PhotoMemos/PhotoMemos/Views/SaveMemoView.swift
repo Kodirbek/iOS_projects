@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-struct SaveImageView: View {
+struct SaveMemoView: View {
     // MARK: - Properties
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
+    let locationFetcher = LocationFetcher()
     
     @State private var name = ""
+    @State private var latitude: Double?
+    @State private var longitude: Double?
     private var imageData: Data?
     private var downloadedImage: Image?
     
@@ -33,6 +36,16 @@ struct SaveImageView: View {
                 
                 TextField("Name of image", text: $name)
                     .textFieldStyle(.roundedBorder)
+                
+                Button("Add current location", systemImage: "mappin.circle") {
+                    locationFetcher.start()
+                    if let location = locationFetcher.lastKnownLocation {
+                        self.latitude = location.latitude
+                        self.longitude = location.longitude
+                    } else {
+                        print("Your location is unknown")
+                    }
+                }
                 
                 Spacer()
             }
@@ -61,5 +74,5 @@ struct SaveImageView: View {
 }
 
 #Preview {
-    SaveImageView(imageData: Data(), image: Image(systemName: "photo"))
+    SaveMemoView(imageData: Data(), image: Image(systemName: "photo"))
 }

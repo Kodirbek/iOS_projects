@@ -39,7 +39,7 @@ struct AddMemoView: View {
                 }
                 .padding([.horizontal, .bottom])
                 .sheet(isPresented: $showingAddScreen, content: {
-                    SaveImageView(imageData: imageData, image: downloadedImage)
+                    SaveMemoView(imageData: imageData, image: downloadedImage)
                 })
             }
         }
