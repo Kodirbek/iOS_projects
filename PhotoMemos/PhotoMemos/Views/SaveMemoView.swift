@@ -28,7 +28,7 @@ struct SaveMemoView: View {
     // MARK: - Body
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 15) {
                 downloadedImage?
                     .resizable()
                     .scaledToFit()
@@ -37,11 +37,16 @@ struct SaveMemoView: View {
                 TextField("Name of image", text: $name)
                     .textFieldStyle(.roundedBorder)
                 
-                Button("Add current location", systemImage: "mappin.circle") {
+                Button("Start Tracking Location") {
                     locationFetcher.start()
+                }
+                .padding()
+                
+                Button("Add current location", systemImage: "mappin.circle") {
                     if let location = locationFetcher.lastKnownLocation {
                         self.latitude = location.latitude
                         self.longitude = location.longitude
+                        print("Your location: lat: \(latitude ?? 0), long \(longitude ?? 0)")
                     } else {
                         print("Your location is unknown")
                     }
@@ -60,7 +65,11 @@ struct SaveMemoView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        let newMemo = Memo(name: name, latitude: 0.0, longitude: 0.0, imageData: imageData ?? Data())
+                        let newMemo = Memo(name: name,
+                                           latitude: latitude ?? 0.0,
+                                           longitude: longitude ?? 0.0,
+                                           imageData: imageData ?? Data()
+                        )
                         modelContext.insert(newMemo)
                         dismiss()
                     }, label: {
