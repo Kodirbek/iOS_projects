@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     let card: Card
+    var remove: (() -> Void)? = nil
     @State private var offset = CGSize.zero
     @State private var isShowingAnswer = false
     
@@ -36,6 +37,16 @@ struct CardView: View {
         .rotationEffect(.degrees(offset.width / 5.0))
         .offset(x: offset.width * 5)
         .opacity(2 - Double(abs(offset.width / 50)))
+        .gesture(
+            DragGesture()
+                .onChanged{ gesture in
+                    if abs(offset.width) > 100 {
+                        remove?()
+                    } else {
+                        offset = .zero
+                    }
+                }
+        )
         .onTapGesture {
             isShowingAnswer.toggle()
         }
