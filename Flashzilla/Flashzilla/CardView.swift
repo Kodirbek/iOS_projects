@@ -12,6 +12,7 @@ struct CardView: View {
     var remove: (() -> Void)? = nil
     @State private var offset = CGSize.zero
     @State private var isShowingAnswer = false
+    @State private var feedback = UINotificationFeedbackGenerator()
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var accessibilityVoiceOverEnabled
 
@@ -58,8 +59,18 @@ struct CardView: View {
         .accessibilityAddTraits(.isButton)
         .gesture(
             DragGesture()
-                .onChanged{ gesture in
+                .onChanged { gesture in
+                    offset = gesture.translation
+                    feedback.prepare()
+                }
+                .onEnded { _ in
                     if abs(offset.width) > 100 {
+                        if offset.width > 0 {
+                            feedback.notificationOccurred(.success)
+                        } else {
+                            feedback.notificationOccurred(.error)
+                        }
+                        
                         remove?()
                     } else {
                         offset = .zero
