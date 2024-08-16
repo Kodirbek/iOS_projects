@@ -9,20 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .trailing) {
-            ForEach(0..<10) {position in
-                Text("Number \(position)")
-                    .alignmentGuide(.trailing) { _ in
-                        Double(position) * -10
-                    }
+        HStack(alignment: .midAccountAndName) {
+            VStack {
+                Text("@kodirbek")
+                    .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
+                Image(systemName: "person")
+                    .resizable()
+                    .frame(width: 64, height: 64)
+            }
+            
+            VStack {
+                Text("Full name:")
+                Text("KHAMZAEV KODIRBEK")
+                    .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
+                    .font(.largeTitle)
             }
         }
-        .background(.red)
-        .frame(width: 400, height: 400)
-        .background(.blue)
     }
 }
 
 #Preview {
     ContentView()
+}
+
+
+extension VerticalAlignment {
+    struct MidAccountAndName: AlignmentID {
+        static func defaultValue(in context: ViewDimensions) -> CGFloat {
+            context[.top]
+        }
+    }
+    
+    static let midAccountAndName = VerticalAlignment(MidAccountAndName.self)
 }
