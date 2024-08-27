@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		819676162C7E18FB00005A7B /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 819676152C7E18FB00005A7B /* resorts.json */; };
 		81AAFD9C2C46A46F00DE4413 /* SnowSeekerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AAFD9B2C46A46F00DE4413 /* SnowSeekerApp.swift */; };
 		81AAFD9E2C46A46F00DE4413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AAFD9D2C46A46F00DE4413 /* ContentView.swift */; };
 		81AAFDA02C46A47400DE4413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81AAFD9F2C46A47400DE4413 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		819676152C7E18FB00005A7B /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = resorts.json; path = ../../../../../Downloads/resorts.json; sourceTree = "<group>"; };
 		81AAFD982C46A46F00DE4413 /* SnowSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AAFD9B2C46A46F00DE4413 /* SnowSeekerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowSeekerApp.swift; sourceTree = "<group>"; };
 		81AAFD9D2C46A46F00DE4413 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				81AAFD9B2C46A46F00DE4413 /* SnowSeekerApp.swift */,
 				81AAFD9D2C46A46F00DE4413 /* ContentView.swift */,
 				81AAFD9F2C46A47400DE4413 /* Assets.xcassets */,
+				819676152C7E18FB00005A7B /* resorts.json */,
 				81AAFDA12C46A47400DE4413 /* Preview Content */,
 			);
 			path = SnowSeeker;
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819676162C7E18FB00005A7B /* resorts.json in Resources */,
 				81AAFDA32C46A47400DE4413 /* Preview Assets.xcassets in Resources */,
 				81AAFDA02C46A47400DE4413 /* Assets.xcassets in Resources */,
 			);
