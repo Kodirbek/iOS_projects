@@ -46,6 +46,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81A826E32CA2F1AD00F39683 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				81AAFD9B2C46A46F00DE4413 /* SnowSeekerApp.swift */,
+				81AAFD9F2C46A47400DE4413 /* Assets.xcassets */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		81A826E42CA2F1CD00F39683 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				81AAFD9D2C46A46F00DE4413 /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		81A826E52CA2F1E700F39683 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81D8A8802C866FD400715C1A /* ResortView.swift */,
+				81D8A8822C86716800715C1A /* SkiDetailsView.swift */,
+				81D8A8842C86728600715C1A /* ResortDetailsView.swift */,
+				81D8A87E2C866EB400715C1A /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81A826E62CA2F20200F39683 /* JSON data */ = {
+			isa = PBXGroup;
+			children = (
+				81D8A8782C85EE0A00715C1A /* resorts.json */,
+			);
+			path = "JSON data";
+			sourceTree = "<group>";
+		};
+		81A826E72CA2F21300F39683 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81D8A87A2C8667EE00715C1A /* Resort.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81A826E82CA2F21E00F39683 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				81D8A87C2C86682100715C1A /* BundleDecoder.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		81AAFD8F2C46A46E00DE4413 = {
 			isa = PBXGroup;
 			children = (
@@ -65,17 +117,13 @@
 		81AAFD9A2C46A46F00DE4413 /* SnowSeeker */ = {
 			isa = PBXGroup;
 			children = (
-				81AAFD9B2C46A46F00DE4413 /* SnowSeekerApp.swift */,
-				81AAFD9D2C46A46F00DE4413 /* ContentView.swift */,
-				81D8A8822C86716800715C1A /* SkiDetailsView.swift */,
-				81D8A8842C86728600715C1A /* ResortDetailsView.swift */,
-				81D8A8802C866FD400715C1A /* ResortView.swift */,
-				81D8A87E2C866EB400715C1A /* WelcomeView.swift */,
-				81D8A87A2C8667EE00715C1A /* Resort.swift */,
-				81AAFD9F2C46A47400DE4413 /* Assets.xcassets */,
-				81D8A8782C85EE0A00715C1A /* resorts.json */,
+				81A826E32CA2F1AD00F39683 /* Core */,
+				81A826E42CA2F1CD00F39683 /* Screens */,
+				81A826E52CA2F1E700F39683 /* Views */,
+				81A826E72CA2F21300F39683 /* Model */,
+				81A826E82CA2F21E00F39683 /* Utils */,
+				81A826E62CA2F20200F39683 /* JSON data */,
 				81AAFDA12C46A47400DE4413 /* Preview Content */,
-				81D8A87C2C86682100715C1A /* BundleDecoder.swift */,
 			);
 			path = SnowSeeker;
 			sourceTree = "<group>";
