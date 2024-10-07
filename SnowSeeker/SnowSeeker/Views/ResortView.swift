@@ -31,6 +31,7 @@ struct ResortView: View {
                 }
                 .padding(.vertical)
                 .background(.primary.opacity(0.1))
+                .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                 
                 Group {
                     Text(resort.description)
@@ -39,7 +40,12 @@ struct ResortView: View {
                     Text("Facilities")
                         .font(.headline)
                     
-                    Text(resort.facilities, format: .list(type: .and))
+                    HStack {
+                        ForEach(resort.facilityTypes) { facilityType in
+                            facilityType.icon
+                                .font(.title)
+                        }
+                    }
                         .padding(.vertical)
                 }
                 .padding(.horizontal)
