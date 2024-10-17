@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8186412A2CC14272009DB8B7 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818641292CC14272009DB8B7 /* Favorites.swift */; };
 		81A20D792CB4A89500C6855A /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A20D782CB4A89500C6855A /* Facility.swift */; };
 		81AAFD9C2C46A46F00DE4413 /* SnowSeekerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AAFD9B2C46A46F00DE4413 /* SnowSeekerApp.swift */; };
 		81AAFD9E2C46A46F00DE4413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AAFD9D2C46A46F00DE4413 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		818641292CC14272009DB8B7 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		81A20D782CB4A89500C6855A /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		81AAFD982C46A46F00DE4413 /* SnowSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AAFD9B2C46A46F00DE4413 /* SnowSeekerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowSeekerApp.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				81D8A87C2C86682100715C1A /* BundleDecoder.swift */,
+				818641292CC14272009DB8B7 /* Favorites.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				81D8A87F2C866EB400715C1A /* WelcomeView.swift in Sources */,
 				81D8A8832C86716800715C1A /* SkiDetailsView.swift in Sources */,
 				81D8A8852C86728600715C1A /* ResortDetailsView.swift in Sources */,
+				8186412A2CC14272009DB8B7 /* Favorites.swift in Sources */,
 				81AAFD9E2C46A46F00DE4413 /* ContentView.swift in Sources */,
 				81D8A87B2C8667EE00715C1A /* Resort.swift in Sources */,
 				81D8A8812C866FD400715C1A /* ResortView.swift in Sources */,
