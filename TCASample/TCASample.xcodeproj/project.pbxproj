@@ -33,9 +33,22 @@
 		91A8EF572D4C63C8003A2D04 /* TCASampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCASampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		91A8EF742D4CB1BF003A2D04 /* Exceptions for "TCASample" folder in "TCASample" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 91A8EF3C2D4C63C6003A2D04 /* TCASample */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		91A8EF3F2D4C63C6003A2D04 /* TCASample */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				91A8EF742D4CB1BF003A2D04 /* Exceptions for "TCASample" folder in "TCASample" target */,
+			);
 			path = TCASample;
 			sourceTree = "<group>";
 		};
@@ -407,6 +420,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TCASample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCASample/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TCA;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -437,6 +451,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TCASample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCASample/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TCA;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
