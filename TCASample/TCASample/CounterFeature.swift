@@ -16,6 +16,7 @@ struct CounterFeature {
         var count = 0
         var fact: String?
         var isLoading = false
+        var isTimerRunning = false
     }
     
     enum Action {
@@ -23,7 +24,11 @@ struct CounterFeature {
         case incrementButtonTapped
         case factButtonTapped
         case factResponse(String)
+        case toggleTimerButtonTapped
+        case timerTick
     }
+    
+    enum CancelID { case  timer }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -46,12 +51,33 @@ struct CounterFeature {
                         let fact = String(decoding: data, as: UTF8.self)
                         await send(.factResponse(fact))
                     }
-                    
                 case .factResponse(let fact):
                     state.fact = fact
                     state.isLoading = false
                     return .none
+                case .toggleTimerButtonTapped:
+                    state.isTimerRunning.toggle()
+                    if (state.isTimerRunning) {
+                        return .run { send in
+                            while true {
+                                if #available(iOS 16.0, *) {
+                                    try await Task.sleep(for: .seconds(1))
+                                } else {
+                                    return
+                                }
+                                await send(.timerTick)
+                            }
+                        }
+                        .cancellable(id: CancelID.timer)
+                    } else {
+                        return .cancel(id: CancelID.timer)
+                    }
                     
+                    
+                case .timerTick:
+                    state.count += 1
+                    state.fact = nil
+                    return .none
                 }
             }
         }
