@@ -57,11 +57,6 @@
 			path = TCASampleTests;
 			sourceTree = "<group>";
 		};
-		91A8EF5A2D4C63C8003A2D04 /* TCASampleUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TCASampleUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +90,6 @@
 			children = (
 				91A8EF3F2D4C63C6003A2D04 /* TCASample */,
 				91A8EF502D4C63C8003A2D04 /* TCASampleTests */,
-				91A8EF5A2D4C63C8003A2D04 /* TCASampleUITests */,
 				91A8EF3E2D4C63C6003A2D04 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -172,9 +166,6 @@
 			dependencies = (
 				91A8EF592D4C63C8003A2D04 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				91A8EF5A2D4C63C8003A2D04 /* TCASampleUITests */,
-			);
 			name = TCASampleUITests;
 			packageProductDependencies = (
 			);
@@ -197,6 +188,7 @@
 					};
 					91A8EF4C2D4C63C8003A2D04 = {
 						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1620;
 						TestTargetID = 91A8EF3C2D4C63C6003A2D04;
 					};
 					91A8EF562D4C63C8003A2D04 = {
@@ -476,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -484,6 +477,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.thetelos.TCASampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "TCASampleTests/TCASampleTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCASample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCASample";
@@ -494,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -502,6 +498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.thetelos.TCASampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "TCASampleTests/TCASampleTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCASample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCASample";

@@ -12,14 +12,14 @@ import ComposableArchitecture
 struct CounterFeature {
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
         var count = 0
         var fact: String?
         var isLoading = false
         var isTimerRunning = false
     }
     
-    enum Action {
+    enum Action: Equatable {
         case decrementButtonTapped
         case incrementButtonTapped
         case factButtonTapped
