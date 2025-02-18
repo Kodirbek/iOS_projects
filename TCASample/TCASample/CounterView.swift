@@ -8,6 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
+@available(iOS 16, *)
 struct CounterView: View {
     
     let store: StoreOf<CounterFeature>
@@ -75,7 +76,11 @@ struct CounterView: View {
 }
 
 #Preview {
-    CounterView(store: Store(initialState: CounterFeature.State()) {
-        CounterFeature()
-    })
+    if #available(iOS 16, *) {
+        CounterView(store: Store(initialState: CounterFeature.State()) {
+            CounterFeature()
+        })
+    } else {
+        // Fallback on earlier versions
+    }
 }

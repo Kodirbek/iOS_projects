@@ -8,6 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
+@available(iOS 16, *)
 @Reducer
 struct CounterFeature {
     
@@ -29,6 +30,8 @@ struct CounterFeature {
     }
     
     enum CancelID { case  timer }
+    
+    @Dependency(\.continuousClock) var clock
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -59,13 +62,15 @@ struct CounterFeature {
                     state.isTimerRunning.toggle()
                     if (state.isTimerRunning) {
                         return .run { send in
-                            while true {
-                                if #available(iOS 16.0, *) {
-                                    try await Task.sleep(for: .seconds(1))
-                                } else {
-                                    return
+                            if #available(iOS 16.0, *) {
+                                for await _ in self.clock.timer(interval: .seconds(1)) {
+                                    await send(.timerTick)
                                 }
-                                await send(.timerTick)
+                            } else {
+                                while true {
+                                    try await Task.sleep(nanoseconds: 1_000_000_000) // 1 second
+                                    await send(.timerTick)
+                                }
                             }
                         }
                         .cancellable(id: CancelID.timer)

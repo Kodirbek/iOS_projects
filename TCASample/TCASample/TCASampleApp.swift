@@ -11,6 +11,7 @@ import ComposableArchitecture
 @main
 struct TCASampleApp: App {
     
+    @available(iOS 16, *)
     static let store = Store(initialState: CounterFeature.State()) {
         CounterFeature()
             ._printChanges()
@@ -18,7 +19,11 @@ struct TCASampleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CounterView(store: TCASampleApp.store)
+            if #available(iOS 16, *) {
+                CounterView(store: TCASampleApp.store)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }

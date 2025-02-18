@@ -18,19 +18,11 @@
 			remoteGlobalIDString = 91A8EF3C2D4C63C6003A2D04;
 			remoteInfo = TCASample;
 		};
-		91A8EF582D4C63C8003A2D04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 91A8EF352D4C63C6003A2D04 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 91A8EF3C2D4C63C6003A2D04;
-			remoteInfo = TCASample;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		91A8EF3D2D4C63C6003A2D04 /* TCASample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCASample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91A8EF4D2D4C63C8003A2D04 /* TCASampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCASampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91A8EF572D4C63C8003A2D04 /* TCASampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCASampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -75,13 +67,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91A8EF542D4C63C8003A2D04 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -99,7 +84,6 @@
 			children = (
 				91A8EF3D2D4C63C6003A2D04 /* TCASample.app */,
 				91A8EF4D2D4C63C8003A2D04 /* TCASampleTests.xctest */,
-				91A8EF572D4C63C8003A2D04 /* TCASampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,26 +137,6 @@
 			productReference = 91A8EF4D2D4C63C8003A2D04 /* TCASampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		91A8EF562D4C63C8003A2D04 /* TCASampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 91A8EF672D4C63C8003A2D04 /* Build configuration list for PBXNativeTarget "TCASampleUITests" */;
-			buildPhases = (
-				91A8EF532D4C63C8003A2D04 /* Sources */,
-				91A8EF542D4C63C8003A2D04 /* Frameworks */,
-				91A8EF552D4C63C8003A2D04 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				91A8EF592D4C63C8003A2D04 /* PBXTargetDependency */,
-			);
-			name = TCASampleUITests;
-			packageProductDependencies = (
-			);
-			productName = TCASampleUITests;
-			productReference = 91A8EF572D4C63C8003A2D04 /* TCASampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,10 +153,6 @@
 					91A8EF4C2D4C63C8003A2D04 = {
 						CreatedOnToolsVersion = 16.2;
 						LastSwiftMigration = 1620;
-						TestTargetID = 91A8EF3C2D4C63C6003A2D04;
-					};
-					91A8EF562D4C63C8003A2D04 = {
-						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 91A8EF3C2D4C63C6003A2D04;
 					};
 				};
@@ -216,7 +176,6 @@
 			targets = (
 				91A8EF3C2D4C63C6003A2D04 /* TCASample */,
 				91A8EF4C2D4C63C8003A2D04 /* TCASampleTests */,
-				91A8EF562D4C63C8003A2D04 /* TCASampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,13 +189,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		91A8EF4B2D4C63C8003A2D04 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		91A8EF552D4C63C8003A2D04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,13 +212,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91A8EF532D4C63C8003A2D04 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -274,11 +219,6 @@
 			isa = PBXTargetDependency;
 			target = 91A8EF3C2D4C63C6003A2D04 /* TCASample */;
 			targetProxy = 91A8EF4E2D4C63C8003A2D04 /* PBXContainerItemProxy */;
-		};
-		91A8EF592D4C63C8003A2D04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 91A8EF3C2D4C63C6003A2D04 /* TCASample */;
-			targetProxy = 91A8EF582D4C63C8003A2D04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -505,38 +445,6 @@
 			};
 			name = Release;
 		};
-		91A8EF682D4C63C8003A2D04 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thetelos.TCASampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TCASample;
-			};
-			name = Debug;
-		};
-		91A8EF692D4C63C8003A2D04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thetelos.TCASampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TCASample;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,15 +471,6 @@
 			buildConfigurations = (
 				91A8EF652D4C63C8003A2D04 /* Debug */,
 				91A8EF662D4C63C8003A2D04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		91A8EF672D4C63C8003A2D04 /* Build configuration list for PBXNativeTarget "TCASampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				91A8EF682D4C63C8003A2D04 /* Debug */,
-				91A8EF692D4C63C8003A2D04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
