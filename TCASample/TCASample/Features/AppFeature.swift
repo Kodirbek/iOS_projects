@@ -20,6 +20,7 @@ struct AppFeature {
         Scope(state: \.tab2, action: \.tab2) {
             CounterFeature()
         }
+        
         Reduce { state, action in
             // Core logic of the app feature
             return .none
