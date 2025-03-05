@@ -3,7 +3,7 @@ import ComposableArchitecture
 
 struct Contact: Equatable, Identifiable {
     let id: UUID
-    let name: String
+    var name: String
 }
 
 @Reducer
@@ -20,7 +20,6 @@ struct ContactFeature {
         Reduce { state, action in
             switch action {
             case .addButtonTapped:
-                // TODO: Handle action
                 return .none
             }
         }
