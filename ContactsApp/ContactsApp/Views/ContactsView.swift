@@ -3,7 +3,7 @@ import ComposableArchitecture
 
 struct ContactsView: View {
     
-    let store: StoreOf<ContactFeature>
+    @Bindable var store: StoreOf<ContactFeature>
     
     var body: some View {
         NavigationStack {
@@ -21,6 +21,11 @@ struct ContactsView: View {
                         Image(systemName: "plus")
                     }
                 }
+            }
+        }
+        .sheet(item: $store.scope(state: \.addContact, action: \.addContact)) { addContactStore in
+            NavigationStack {
+                AddContactView(store: addContactStore)
             }
         }
     }
