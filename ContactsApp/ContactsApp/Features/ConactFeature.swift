@@ -10,16 +10,12 @@ struct Contact: Equatable, Identifiable {
 struct ContactFeature {
     @ObservableState
     struct State: Equatable {
-//        @Presents var addContact: AddContactFeature.State?
-//        @Presents var alert: AlertState<Action.Alert>?
         @Presents var destination: Destination.State?
         var contacts: IdentifiedArrayOf<Contact> = []
     }
     enum Action {
         case addButtonTapped
-//        case addContact(PresentationAction<AddContactFeature.Action>)
         case deleteButtonTapped(id: Contact.ID)
-//        case alert(PresentationAction<Alert>)
         case destination(PresentationAction<Destination.Action>)
         enum Alert: Equatable {
             case confirmDeletion(id: Contact.ID)
