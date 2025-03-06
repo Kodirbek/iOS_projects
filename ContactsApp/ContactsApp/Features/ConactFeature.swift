@@ -17,6 +17,7 @@ struct ContactFeature {
         case addButtonTapped
         case deleteButtonTapped(id: Contact.ID)
         case destination(PresentationAction<Destination.Action>)
+        @CasePathable
         enum Alert: Equatable {
             case confirmDeletion(id: Contact.ID)
         }
@@ -49,15 +50,7 @@ struct ContactFeature {
                 return .none
                 
             case let .deleteButtonTapped(id: id):
-                state.destination = .alert(
-                    AlertState {
-                        TextState("Are you sure you want to delete this contact?")
-                    } actions: {
-                        ButtonState(role: .destructive, action: .confirmDeletion(id: id)) {
-                            TextState("Delete")
-                        }
-                    }
-                )
+                state.destination = .alert(.deleteConfirmation(id: id))
                 return .none
             }
         }
@@ -74,3 +67,15 @@ extension ContactFeature {
 }
 
 extension ContactFeature.Destination.State: Equatable {}
+
+extension AlertState where Action == ContactFeature.Action.Alert {
+    static func deleteConfirmation(id: UUID) -> Self {
+        Self {
+            TextState("Are you sure you want to delete this contact?")
+        } actions: {
+            ButtonState(role: .destructive, action: .confirmDeletion(id: id)) {
+                TextState("Delete")
+            }
+        }
+    }
+}
