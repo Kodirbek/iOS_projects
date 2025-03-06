@@ -29,15 +29,35 @@ struct ContactsFeatureTests {
         await store.send(\.destination.addContact.saveButtonTapped)
         
         await store.receive(
-            \.destination.addContact.delegate.saveContact,
-             Contact(id: UUID(0), name: "Test User 1")
+            \.destination.addContact.delegate.saveContact, Contact(id: UUID(0), name: "Test User 1")
         ) {
-            $0.contacts = [
-                Contact(id: UUID(0), name: "Test User 1")
-            ]
+            $0.contacts = [ Contact(id: UUID(0), name: "Test User 1") ]
         }
         
         await store.receive(\.destination.dismiss) {
+            $0.destination = nil
+        }
+    }
+    
+    
+    @Test
+    func addFlowNonExhaustive() async {
+        let store = TestStore(initialState: ContactFeature.State()) {
+            ContactFeature()
+        } withDependencies: {
+            $0.uuid = .incrementing
+        }
+        
+        store.exhaustivity = .off
+        
+        await store.send(.addButtonTapped)
+        await store.send(\.destination.addContact.setName, "Test User 2")
+        await store.send(\.destination.addContact.saveButtonTapped)
+        await store.skipReceivedActions()
+        store.assert {
+            $0.contacts = [
+                Contact(id: UUID(0), name: "Test User 2")
+            ]
             $0.destination = nil
         }
     }
