@@ -10,36 +10,70 @@ struct Contact: Equatable, Identifiable {
 struct ContactFeature {
     @ObservableState
     struct State: Equatable {
-        @Presents var addContact: AddContactFeature.State?
+//        @Presents var addContact: AddContactFeature.State?
+//        @Presents var alert: AlertState<Action.Alert>?
+        @Presents var destination: Destination.State?
         var contacts: IdentifiedArrayOf<Contact> = []
     }
     enum Action {
         case addButtonTapped
-        case addContact(PresentationAction<AddContactFeature.Action>)
+//        case addContact(PresentationAction<AddContactFeature.Action>)
+        case deleteButtonTapped(id: Contact.ID)
+//        case alert(PresentationAction<Alert>)
+        case destination(PresentationAction<Destination.Action>)
+        enum Alert: Equatable {
+            case confirmDeletion(id: Contact.ID)
+        }
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .addButtonTapped:
-                state.addContact = AddContactFeature.State(
-                    contact: Contact(id: UUID(), name: "")
+                state.destination = .addContact(
+                    AddContactFeature.State(
+                        contact: Contact(id: UUID(), name: "")
+                    )
                 )
                 return .none
                 
-            case let .addContact(.presented(.delegate(.saveContact(contact)))):
+            case let .destination(.presented(.addContact(.delegate(.saveContact(contact))))):
                 if contact.name.trimmingCharacters(in: .whitespaces) == "" {
                     return .none
                 }
                 state.contacts.append(contact)
                 return .none
                 
-            case .addContact:
+            case let .destination(.presented(.alert(.confirmDeletion(id: id)))):
+                state.contacts.remove(id: id)
+                return .none
+                
+            case .destination:
+                return .none
+                
+            case let .deleteButtonTapped(id: id):
+                state.destination = .alert(
+                    AlertState {
+                        TextState("Are you sure you want to delete this contact?")
+                    } actions: {
+                        ButtonState(role: .destructive, action: .confirmDeletion(id: id)) {
+                            TextState("Delete")
+                        }
+                    }
+                )
                 return .none
             }
         }
-        .ifLet(\.$addContact, action: \.addContact) {
-            AddContactFeature()
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
+
+extension ContactFeature {
+    @Reducer
+    enum Destination {
+        case addContact(AddContactFeature)
+        case alert(AlertState<ContactFeature.Action.Alert>)
+    }
+}
+
+extension ContactFeature.Destination.State: Equatable {}
