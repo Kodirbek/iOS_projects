@@ -138,6 +138,7 @@ func isSubsequent(_ s: String, _ t: String) -> Bool {
 isSubsequent("abc", "ahbgdc")
 */
 
+/*
 func reverseString(_ s: inout [Character]) {
     var left = 0
     var right = s.count - 1
@@ -161,3 +162,35 @@ func reverseString(_ s: inout [Character]) {
 
 var s: [Character] = ["H","a","n","n","a","h"]
 reverseString(&s)
+*/
+
+
+/// Squares of a sorted array
+/// Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+func sortedSquares(_ nums: [Int]) -> [Int] {
+    var result = Array(repeating: 0, count: nums.count)
+    var left = 0
+    var right = nums.count - 1
+    var index = nums.count - 1
+    
+    while left <= right {
+        let leftSquare = nums[left] * nums[left]
+        let rightSquare = nums[right] * nums[right]
+        
+        if leftSquare > rightSquare {
+            result[index] = leftSquare
+            left += 1
+        } else {
+            result[index] = rightSquare
+            right -= 1
+        }
+        index -= 1
+    }
+    
+    return result
+}
+
+var nums = [-4,-1,0,3,10]
+sortedSquares(nums)
+//Input: nums = [-4,-1,0,3,10]
+//Output:       [0,1,9,16,100]
