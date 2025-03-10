@@ -149,7 +149,10 @@ func reverseString(_ s: inout [Character]) {
 //        s[right] = char1
         
         // tuple swap
-        (s[left], s[right]) = (s[right], s[left])
+//        (s[left], s[right]) = (s[right], s[left])
+        
+        // swapAt
+        s.swapAt(left, right)
         
         left += 1
         right -= 1
