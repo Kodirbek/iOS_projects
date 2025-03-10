@@ -116,6 +116,7 @@ combineSortedArrays( [1, 3, 5, 7], [2, 4, 6, 8])
 
 /// Example 4: 392. Is Subsequence.
 /// Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+/*
 func isSubsequent(_ s: String, _ t: String) -> Bool {
     guard !s.isEmpty else {
         return true
@@ -135,3 +136,25 @@ func isSubsequent(_ s: String, _ t: String) -> Bool {
 }
 
 isSubsequent("abc", "ahbgdc")
+*/
+
+func reverseString(_ s: inout [Character]) {
+    var left = 0
+    var right = s.count - 1
+    
+    while left < right {
+        // classic swap
+//        var char1 = s[left]
+//        s[left] = s[right]
+//        s[right] = char1
+        
+        // tuple swap
+        (s[left], s[right]) = (s[right], s[left])
+        
+        left += 1
+        right -= 1
+    }
+}
+
+var s: [Character] = ["H","a","n","n","a","h"]
+reverseString(&s)
