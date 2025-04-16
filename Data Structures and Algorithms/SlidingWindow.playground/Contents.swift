@@ -55,6 +55,7 @@ let s = "1101100111"
 findLongestBinary(s: s)
 */
 
+/*
 /// Given an array of positive integers nums and an integer k, return the number of subarrays where the product of all the elements in the subarray is strictly less than k
 /// For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The subarrays with products less than k are:
 /// [10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
@@ -77,3 +78,26 @@ func numSubarrayProductLessThanK(_ nums: [Int], _ k: Int) -> Int {
 }
 let nums = [10, 5, 2, 6], k = 100
 numSubarrayProductLessThanK(nums, k)
+*/
+
+
+/// Example 4: Given an integer array nums and an integer k, find the sum of the subarray with the largest sum whose length is k.
+func findBestSubarraySum(_ nums: [Int], _ k: Int) -> Int? {
+    guard k > 0, k <= nums.count else {
+        return nil
+    }
+    
+    var currentSum = nums[0..<k].reduce(0, +)
+    var bestSum = currentSum
+    
+    for i in k..<nums.count {
+        currentSum += nums[i] - nums[i - k]
+        bestSum = max(bestSum, currentSum)
+    }
+    
+    return bestSum
+}
+let nums = [3, -1, 4, 12, -8, 5, 6], k = 4
+findBestSubarraySum(nums, k)
+
+
