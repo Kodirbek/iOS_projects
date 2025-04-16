@@ -26,6 +26,7 @@ let nums = [3, 2, 1, 3, 1, 1]
 longestSubarraySumLessThanOrEqualTo(nums, 5)
 */
  
+/*
 /// You are given a binary string s (a string containing only "0" and "1"). You may choose up to one "0" and flip it to a "1". What is the length of the longest substring achievable that contains only "1"?
 func findLongestBinary(s: String) -> Int {
     var left = s.startIndex
@@ -52,3 +53,27 @@ func findLongestBinary(s: String) -> Int {
 
 let s = "1101100111"
 findLongestBinary(s: s)
+*/
+
+/// Given an array of positive integers nums and an integer k, return the number of subarrays where the product of all the elements in the subarray is strictly less than k
+/// For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The subarrays with products less than k are:
+/// [10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
+func numSubarrayProductLessThanK(_ nums: [Int], _ k: Int) -> Int {
+    if k <= 1 {
+        return 0
+    }
+    
+    var (answer, left, current) = (0, 0, 1)
+    for (right, value) in nums.enumerated() {
+        current *= value
+        while current >= k {
+            current /= nums[left]
+            left += 1
+        }
+        answer += right - left + 1
+    }
+    
+    return answer
+}
+let nums = [10, 5, 2, 6], k = 100
+numSubarrayProductLessThanK(nums, k)
