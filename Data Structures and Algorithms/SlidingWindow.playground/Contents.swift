@@ -81,6 +81,7 @@ numSubarrayProductLessThanK(nums, k)
 */
 
 
+/*
 /// Example 4: Given an integer array nums and an integer k, find the sum of the subarray with the largest sum whose length is k.
 func findBestSubarraySum(_ nums: [Int], _ k: Int) -> Int? {
     guard k > 0, k <= nums.count else {
@@ -99,5 +100,29 @@ func findBestSubarraySum(_ nums: [Int], _ k: Int) -> Int? {
 }
 let nums = [3, -1, 4, 12, -8, 5, 6], k = 4
 findBestSubarraySum(nums, k)
+ */
 
+
+/// You are given an integer array nums consisting of n elements, and an integer k.
+/// Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value.
+/// n == nums.length; 1 <= k <= n <= 105;
+func findMaxAverage(_ nums: [Int], _ k: Int) -> Double {
+    guard k > 0, k <= nums.count else {
+        return 0
+    }
+    
+    var currentAverage = nums[0..<k].reduce(0, +)
+    var maxAverage = currentAverage
+    
+    for i in k..<nums.count {
+        currentAverage += nums[i] - nums[i - k]
+        maxAverage = max(maxAverage, currentAverage)
+    }
+    
+    
+    return Double(maxAverage) / Double(k)
+}
+
+let nums = [1,12,-5,-6,50,3], k = 4
+findMaxAverage(nums, k)
 
