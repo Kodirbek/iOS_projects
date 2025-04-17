@@ -103,6 +103,7 @@ findBestSubarraySum(nums, k)
  */
 
 
+/*
 /// You are given an integer array nums consisting of n elements, and an integer k.
 /// Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value.
 /// n == nums.length; 1 <= k <= n <= 105;
@@ -125,4 +126,33 @@ func findMaxAverage(_ nums: [Int], _ k: Int) -> Double {
 
 let nums = [1,12,-5,-6,50,3], k = 4
 findMaxAverage(nums, k)
+*/
 
+/// Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's
+func longestOnes(_ nums: [Int], _ k: Int) -> Int {
+    let totalZeros = nums.filter { $0 == 0 }.count
+    if k >= totalZeros {
+        return nums.count
+    }
+    
+    var currentZeros = 0, left = 0, result = 0
+    
+    for (right, value) in nums.enumerated() {
+        if value == 0 {
+            currentZeros += 1
+        }
+        
+        while currentZeros > k {
+            if nums[left] == 0 {
+                currentZeros -= 1
+            }
+            left += 1
+        }
+        
+        result = max(result, right - left + 1)
+    }
+    
+    return result
+}
+let nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
+longestOnes(nums, k)
