@@ -52,6 +52,7 @@ answerQueries(nums, queries, limit)
  waysToSplitArray(nums)
  */
  
+/*
 /// More space efficient version of waysToSplitArray: waysToSplitArray2.
 /// Improvement point: Space complexity is O(1) compared to O(n) in waysToSplitArray as there is no need to create prefixSum array.
 /// On Leetcode: Runtime: Beats 100%, Memory: Beats 84.6%
@@ -74,3 +75,19 @@ func waysToSplitArray2(_ nums: [Int]) -> Int {
 }
 let nums = [10, 4, -8, 7]
 waysToSplitArray2(nums)
+*/
+
+/// Given an array of integers nums, you start with an initial positive value startValue.
+/// In each iteration, you calculate the step by step sum of startValue plus elements in nums (from left to right).
+/// Return the minimum positive value of startValue such that the step by step sum is never less than 1.
+func minStartValue(_ nums: [Int]) -> Int {
+    var minValue = 0, curr = 0
+    for num in nums {
+        curr += num
+        minValue = min(minValue, curr)
+    }
+    
+    return abs(minValue) + 1
+}
+let nums = [-3,2,-3,4,2]
+minStartValue(nums)
