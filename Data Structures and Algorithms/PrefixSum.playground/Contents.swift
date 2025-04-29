@@ -77,6 +77,7 @@ let nums = [10, 4, -8, 7]
 waysToSplitArray2(nums)
 */
 
+/*
 /// Given an array of integers nums, you start with an initial positive value startValue.
 /// In each iteration, you calculate the step by step sum of startValue plus elements in nums (from left to right).
 /// Return the minimum positive value of startValue such that the step by step sum is never less than 1.
@@ -91,3 +92,33 @@ func minStartValue(_ nums: [Int]) -> Int {
 }
 let nums = [-3,2,-3,4,2]
 minStartValue(nums)
+*/
+
+/// You are given a 0-indexed array nums of n integers, and an integer k.
+/// The k-radius average for a subarray of nums centered at some index i with the radius k is the average of all elements in nums between the indices i - k and i + k (inclusive). If there are less than k elements before or after the index i, then the k-radius average is -1.
+/// Build and return an array avgs of length n where avgs[i] is the k-radius average for the subarray centered at index i.
+/// The average of x elements is the sum of the x elements divided by x, using integer division. The integer division truncates toward zero, which means losing its fractional part.
+func getAveragesWithPrefix(_ nums: [Int], _ k: Int) -> [Int] {
+    let n = nums.count
+    let windowSize = 2 * k + 1
+    var avgs = [Int](repeating: -1, count: n)
+    
+    var prefix = [Int](repeating: 0, count: n + 1)
+    for i in 0..<n {
+        prefix[i + 1] = prefix[i] + nums[i]
+    }
+    print("prefix: \(prefix)")
+    
+    for i in k..<(n - k) {
+        let start = i - k
+        let end = i + k
+        let sum = prefix[end + 1] - prefix[start]
+        print("i: \(i), start: \(start), end: \(end), sum: \(sum)")
+        avgs[i] = sum / windowSize
+    }
+    
+    print("avgs: \(avgs)")
+    return avgs
+}
+let nums = [7,4,3,9,1,8,5,2,6], k = 3
+getAveragesWithPrefix(nums, k)
