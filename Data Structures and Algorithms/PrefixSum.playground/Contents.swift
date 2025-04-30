@@ -143,7 +143,6 @@ func getAveragesWithSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
         windowSum -= nums[i - windowSize]
         
         let center = i - k
-        print("i: \(i), k: \(k), center: \(center), windowSum: \(windowSum)")
         avgs[center] = windowSum / windowSize
     }
     
