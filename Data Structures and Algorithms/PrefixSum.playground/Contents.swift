@@ -98,7 +98,7 @@ minStartValue(nums)
 /// The k-radius average for a subarray of nums centered at some index i with the radius k is the average of all elements in nums between the indices i - k and i + k (inclusive). If there are less than k elements before or after the index i, then the k-radius average is -1.
 /// Build and return an array avgs of length n where avgs[i] is the k-radius average for the subarray centered at index i.
 /// The average of x elements is the sum of the x elements divided by x, using integer division. The integer division truncates toward zero, which means losing its fractional part.
-func getAveragesWithPrefix(_ nums: [Int], _ k: Int) -> [Int] {
+func getAveragesWithPrefixSum(_ nums: [Int], _ k: Int) -> [Int] {
     let n = nums.count
     let windowSize = 2 * k + 1
     var avgs = [Int](repeating: -1, count: n)
@@ -107,18 +107,42 @@ func getAveragesWithPrefix(_ nums: [Int], _ k: Int) -> [Int] {
     for i in 0..<n {
         prefix[i + 1] = prefix[i] + nums[i]
     }
-    print("prefix: \(prefix)")
     
     for i in k..<(n - k) {
         let start = i - k
         let end = i + k
         let sum = prefix[end + 1] - prefix[start]
-        print("i: \(i), start: \(start), end: \(end), sum: \(sum)")
         avgs[i] = sum / windowSize
     }
     
-    print("avgs: \(avgs)")
     return avgs
 }
 let nums = [7,4,3,9,1,8,5,2,6], k = 3
-getAveragesWithPrefix(nums, k)
+getAveragesWithPrefixSum(nums, k)
+
+
+func getAveragesWithSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
+    let n = nums.count
+    let windowSize = 2 * k + 1
+    
+    var avgs = [Int](repeating: -1, count: n)
+    
+    guard windowSize <= n else {
+        return avgs
+    }
+    
+    var windowSum = nums[0..<windowSize].reduce(0, +)
+    avgs[k] = windowSum / windowSize
+    
+    for i in (windowSize)..<n {
+        windowSum += nums[i]
+        windowSum -= nums[i - windowSize]
+        
+        let center = i - k
+        print("i: \(i), k: \(k), center: \(center), windowSum: \(windowSum)")
+        avgs[center] = windowSum / windowSize
+    }
+    
+    return avgs
+}
+getAveragesWithSlidingWindow(nums, k)
