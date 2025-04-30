@@ -103,6 +103,10 @@ func getAveragesWithPrefixSum(_ nums: [Int], _ k: Int) -> [Int] {
     let windowSize = 2 * k + 1
     var avgs = [Int](repeating: -1, count: n)
     
+    guard windowSize <= n else {
+        return avgs
+    }
+    
     var prefix = [Int](repeating: 0, count: n + 1)
     for i in 0..<n {
         prefix[i + 1] = prefix[i] + nums[i]
