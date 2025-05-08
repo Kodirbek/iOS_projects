@@ -2,8 +2,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  
-  @State var store: TheMetStore
+  @Bindable var store: TheMetStore
   @State private var query = "rhino"
   @State private var showQueryField = false
   @State private var fetchObjectsTask: Task<Void, Error>?
@@ -15,7 +14,7 @@ struct ContentView: View {
           .padding(5)
           .background(.metForeground)
           .cornerRadius(10)
-        List(store.objects) { object in
+        List($store.objects) { $object in
           if !object.isPublicDomain,
             let url = URL(string: object.objectURL) {
             NavigationLink(value: url) {
@@ -25,7 +24,7 @@ struct ContentView: View {
             .foregroundColor(.white)
           } else {
             NavigationLink(object.title) {
-              ObjectView(object: object)
+              ObjectView(object: $object)
             }
             .listRowBackground(Color.metForeground)
           }

@@ -1,7 +1,8 @@
 
 import Foundation
 
-@Observable class TheMetStore {
+@Observable
+class TheMetStore {
   var objects: [Object] = []
   private let service = TheMetService()
   let maxIndex: Int

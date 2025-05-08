@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct ObjectView: View {
-  var object: Object
+  @Binding var object: Object
 
   var body: some View {
     VStack {
@@ -36,11 +36,22 @@ struct ObjectView: View {
         PlaceholderView(note: "Not in public domain. URL not valid.")
       }
 
-      Text(object.creditLine)
-        .font(.caption)
+      HStack {
+        Text(object.creditLine)
+          .font(.caption)
+          .padding()
+          .background(.metForeground)
+          .cornerRadius(10)
+        
+        Button {
+          object.isFavorite.toggle()
+        } label: {
+          Image(systemName: object.isFavorite ? "star.fill" : "star")
+            .foregroundStyle(.yellow)
+        }
         .padding()
-        .background(.metForeground)
-        .cornerRadius(10)
+      }
+      .padding(.horizontal)
     }
     .padding(.vertical)
   }
@@ -55,5 +66,5 @@ struct ObjectView: View {
     isPublicDomain: true,
     primaryImageSmall: "https://images.metmuseum.org/CRDImages/is/original/DP107178.jpg")
 
-  return ObjectView(object: object)
+  return ObjectView(object: $object)
 }
