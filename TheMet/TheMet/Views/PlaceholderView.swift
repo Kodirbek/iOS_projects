@@ -7,8 +7,8 @@ struct PlaceholderView: View {
     ZStack {
       Rectangle()
         .inset(by: 7)
-        .fill(Color.metForeground)
-        .border(Color.metBackground, width: 7)
+        .fill(.metForeground)
+        .border(.metBackground, width: 7)
         .padding()
       Text(note)
         .foregroundColor(.metBackground)

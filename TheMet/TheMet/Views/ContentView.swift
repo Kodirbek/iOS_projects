@@ -2,35 +2,20 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var objects: [Object] = []
-  private let service = TheMetService()
-  let maxIndex = 20
-
+  
+  @State var store = TheMetStore()
   @State private var query = "rhino"
   @State private var showQueryField = false
   @State private var fetchObjectsTask: Task<Void, Error>?
-
-  func fetchObjects(for queryTerm: String) async throws {
-    if let objectIDs = try await service.getObjectIDs(from: queryTerm) {
-      for (index, objectID) in objectIDs.objectIDs.enumerated()
-      where index < maxIndex {
-        if let object = try await service.getObject(from: objectID) {
-          await MainActor.run {
-            objects.append(object)
-          }
-        }
-      }
-    }
-  }
 
   var body: some View {
     NavigationStack {
       VStack {
         Text("You searched for '\(query)'")
           .padding(5)
-          .background(Color.metForeground)
+          .background(.metForeground)
           .cornerRadius(10)
-        List(objects) { object in
+        List(store.objects) { object in
           if !object.isPublicDomain,
             let url = URL(string: object.objectURL) {
             NavigationLink(value: url) {
@@ -51,11 +36,11 @@ struct ContentView: View {
             query = ""
             showQueryField = true
           }
-          .foregroundColor(Color.metBackground)
+          .foregroundColor(.metBackground)
           .padding(.horizontal)
           .background(
             RoundedRectangle(cornerRadius: 8)
-              .stroke(Color.metBackground, lineWidth: 2))
+              .stroke(.metBackground, lineWidth: 2))
         }
         .alert(
           "Search the Met",
@@ -66,8 +51,8 @@ struct ContentView: View {
               fetchObjectsTask?.cancel()
               fetchObjectsTask = Task {
                 do {
-                  objects = []
-                  try await fetchObjects(for: query)
+                  store.objects = []
+                  try await store.fetchObjects(for: query)
                 } catch {}
               }
             }
@@ -79,12 +64,12 @@ struct ContentView: View {
         }
       }
       .overlay {
-        if objects.isEmpty { ProgressView() }
+        if store.objects.isEmpty { ProgressView() }
       }
     }
     .task {
       do {
-        try await fetchObjects(for: query)
+        try await store.fetchObjects(for: query)
       } catch {}
     }
   }
