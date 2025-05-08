@@ -13,6 +13,7 @@
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
 		912623182DCC48690011D16F /* TheMetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912623172DCC48690011D16F /* TheMetStore.swift */; };
+		91A98D642DCC98B400A0BF56 /* MockMetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A98D632DCC98B400A0BF56 /* MockMetStore.swift */; };
 		CD1488F12961427B00332CAE /* URLComponentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1488F02961427B00332CAE /* URLComponentsExtension.swift */; };
 		CD1488F5296CD01F00332CAE /* TheMetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1488F4296CD01F00332CAE /* TheMetService.swift */; };
 		CDC76C292BF241A900268C4F /* WebIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC76C282BF241A900268C4F /* WebIndicatorView.swift */; };
@@ -31,6 +32,7 @@
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912623172DCC48690011D16F /* TheMetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMetStore.swift; sourceTree = "<group>"; };
+		91A98D632DCC98B400A0BF56 /* MockMetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMetStore.swift; sourceTree = "<group>"; };
 		CD1488F02961427B00332CAE /* URLComponentsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComponentsExtension.swift; sourceTree = "<group>"; };
 		CD1488F4296CD01F00332CAE /* TheMetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheMetService.swift; sourceTree = "<group>"; };
 		CDC76C282BF241A900268C4F /* WebIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebIndicatorView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				912623172DCC48690011D16F /* TheMetStore.swift */,
+				91A98D632DCC98B400A0BF56 /* MockMetStore.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDDCFFC72939C83B0022CE9A /* ObjectView.swift in Sources */,
+				91A98D642DCC98B400A0BF56 /* MockMetStore.swift in Sources */,
 				CD1488F12961427B00332CAE /* URLComponentsExtension.swift in Sources */,
 				CDC76C292BF241A900268C4F /* WebIndicatorView.swift in Sources */,
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,

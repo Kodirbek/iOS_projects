@@ -75,5 +75,5 @@ struct ContentView: View {
 }
 
 #Preview {
-  ContentView(store: TheMetStore())
+  ContentView(store: MockMetStore())
 }

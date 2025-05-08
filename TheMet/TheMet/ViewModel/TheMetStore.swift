@@ -4,10 +4,12 @@ import Foundation
 @Observable
 class TheMetStore {
   var objects: [Object] = []
-  private let service = TheMetService()
+  private let service: TheMetService
   let maxIndex: Int
   
-  init(_ maxIndex: Int = 20) {
+  init(service: TheMetService = TheMetService(),
+       _ maxIndex: Int = 20) {
+    self.service = service
     self.maxIndex = maxIndex
   }
   
