@@ -34,16 +34,18 @@ struct FlightStatusBoard: View {
         Text(lastUpdateString(context.date))
           .font(.footnote)
         TabView(selection: $selectedTab) {
+          
           FlightList(
             flights: shownFlights.filter { $0.direction == .arrival },
             highlightedIds: $highlightedIds
           ).tabItem {
-            Image("descending-airplane")
+            Image(systemName: "airplane.arrival")
               .resizable()
             Text("Arrivals")
           }
           .badge(shownFlights.filter { $0.direction == .arrival }.count)
           .tag(0)
+          
           FlightList(
             flights: shownFlights,
             flightToShow: flightToShow,
@@ -55,11 +57,13 @@ struct FlightStatusBoard: View {
           }
           .badge(shortDateString)
           .tag(1)
+          
           FlightList(
             flights: shownFlights.filter { $0.direction == .departure },
             highlightedIds: $highlightedIds
           ).tabItem {
-            Image("ascending-airplane")
+            Image(systemName: "airplane.departure")
+              .resizable()
             Text("Departures")
           }
           .badge(shownFlights.filter { $0.direction == .departure }.count)
