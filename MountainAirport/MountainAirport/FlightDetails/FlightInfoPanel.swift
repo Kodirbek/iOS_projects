@@ -28,7 +28,11 @@ struct FlightInfoPanel: View {
         }
         Text(flight.flightStatus) + Text(" (\(timeFormatter.string(from: flight.localTime)))")
         Button {
-          showTerminal.toggle()
+          withAnimation(
+            .spring(duration: 0.55, bounce: 0.45, blendDuration: 0)
+          ) {
+            showTerminal.toggle()
+          }
         } label: {
           HStack {
             Text(showTerminal ? "Hide Terminal Map" : "Show Terminal Map")
@@ -36,7 +40,8 @@ struct FlightInfoPanel: View {
             Image(systemName: "airplane.circle")
               .imageScale(.large)
               .padding(10)
-              .rotationEffect(.degrees(showTerminal ? 90 : -90))
+              .rotationEffect(.degrees(showTerminal ? 90 : 270))
+              .scaleEffect(showTerminal ? 1.2 : 1.0)
           }
         }
         if showTerminal {
