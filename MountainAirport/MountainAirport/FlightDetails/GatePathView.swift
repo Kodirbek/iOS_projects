@@ -4,7 +4,7 @@ struct GatePathView: View {
   var flight: FlightInformation
   @State private var showPath = false
   var walkingAnimation: Animation {
-    .linear(duration: 2.0)
+    .linear(duration: 2.5)
     .repeatForever(autoreverses: false)
   }
 
