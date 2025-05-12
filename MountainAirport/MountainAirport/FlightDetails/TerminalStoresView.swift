@@ -2,6 +2,7 @@ import SwiftUI
 
 struct TerminalStoresView: View {
   var flight: FlightInformation
+  @State private var showStores = false
 
   var stores: [TerminalStore] {
     if flight.terminal == "A" {
@@ -41,7 +42,18 @@ struct TerminalStoresView: View {
               .shadow(radius: 5)
           )
           .frame(width: storeWidth, height: storeHeight)
-          .offset(x: xOffset, y: height * 0.4)
+          .offset(
+            x: showStores ?
+              xOffset :
+              firstStoreOffset - direction * width,
+            y: height * 0.4
+          )
+          .animation(.easeOut.delay(Double(index) * 0.35), value: showStores)
+      }
+    }
+    .onAppear {
+      withAnimation(.easeInOut) {
+        showStores = true
       }
     }
   }
