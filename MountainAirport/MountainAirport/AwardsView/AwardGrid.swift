@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AwardGrid: View {
   var title: String
+  @Binding var selected: AwardInformation?
   var awards: [AwardInformation]
 
   var body: some View {
@@ -16,11 +17,14 @@ struct AwardGrid: View {
         )
     ) {
       ForEach(awards, id: \.self) { award in
-        NavigationLink(destination: AwardDetails(award: award)) {
-          AwardCardView(award: award)
-            .foregroundColor(.black)
-            .aspectRatio(0.67, contentMode: .fit)
-        }
+        AwardCardView(award: award)
+          .foregroundColor(.black)
+          .aspectRatio(0.67, contentMode: .fit)
+          .onTapGesture {
+            withAnimation {
+              selected = award
+            }
+          }
       }
     }
   }
@@ -29,6 +33,7 @@ struct AwardGrid: View {
 #Preview {
   AwardGrid(
     title: "Test",
+    selected: .constant(nil),
     awards: AppEnvironment().awardList
   )
 }
