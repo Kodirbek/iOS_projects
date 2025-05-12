@@ -3,6 +3,7 @@ import SwiftUI
 struct AwardsView: View {
   @EnvironmentObject var flightNavigation: AppEnvironment
   @State var selectedAward: AwardInformation?
+  @Namespace var cardNamespace
   var awardArray: [AwardInformation] {
     flightNavigation.awardList
   }
@@ -31,6 +32,11 @@ struct AwardsView: View {
               selectedAward = nil
             }
           }
+          .matchedGeometryEffect(
+            id: award.hashValue,
+            in: cardNamespace,
+            anchor: .topLeading
+          )
           .navigationTitle(award.title)
       } else {
         ScrollView {
@@ -38,12 +44,14 @@ struct AwardsView: View {
             AwardGrid(
               title: "Awarded",
               selected: $selectedAward,
-              awards: activeAwards
+              awards: activeAwards,
+              namespace: cardNamespace
             )
             AwardGrid(
               title: "Not Awarded",
               selected: $selectedAward,
-              awards: inactiveAwards
+              awards: inactiveAwards,
+              namespace: cardNamespace
             )
           }
         }

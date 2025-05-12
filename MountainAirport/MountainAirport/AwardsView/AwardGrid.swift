@@ -4,6 +4,7 @@ struct AwardGrid: View {
   var title: String
   @Binding var selected: AwardInformation?
   var awards: [AwardInformation]
+  var namespace: Namespace.ID
 
   var body: some View {
     Section(
@@ -25,15 +26,23 @@ struct AwardGrid: View {
               selected = award
             }
           }
+          .matchedGeometryEffect(
+            id: award.hashValue,
+            in: namespace,
+            anchor: .topLeading
+          )
       }
     }
   }
 }
 
 #Preview {
+  @Previewable @Namespace var namespace
+  
   AwardGrid(
     title: "Test",
     selected: .constant(nil),
-    awards: AppEnvironment().awardList
+    awards: AppEnvironment().awardList,
+    namespace: namespace
   )
 }
