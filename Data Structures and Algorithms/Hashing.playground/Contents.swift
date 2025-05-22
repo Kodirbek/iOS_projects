@@ -41,3 +41,20 @@ func repeatedCharacter(_ s: String) -> Character {
     return " "
 }
 */
+
+/**
+ Given an integer array nums, find all the numbers x in nums that satisfy the following: x + 1 is not in nums, and x - 1 is not in nums.
+ If a valid number x appears multiple times, you only need to include it in the answer once.
+ */
+func findNumbers(_ nums: [Int]) -> [Int] {
+    var result: [Int] = []
+    var setNums: Set<Int> = Set(nums)
+    
+    for num in setNums {
+        if !setNums.contains(num - 1) && !setNums.contains(num + 1) {
+            result.append(num)
+        }
+    }
+    
+    return result
+}
