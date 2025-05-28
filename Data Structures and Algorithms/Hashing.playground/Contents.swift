@@ -95,7 +95,6 @@ func missingNumber(_ nums: [Int]) -> Int {
     let numsSet = Set(nums)
     return numsFullSet.subtracting(numsSet).first!
 }
-*/
 
 // Complexity: Space: O(1), time: O(n)
 func missingNumber2(_ nums: [Int]) -> Int {
@@ -106,3 +105,23 @@ func missingNumber2(_ nums: [Int]) -> Int {
 }
 let nums: [Int] = [3,0,1]
 missingNumber2(nums)
+ */
+
+/**
+ Given an integer array arr, count how many elements x there are, such that x + 1 is also in arr. If there are duplicates in arr, count them separately.
+ Input: arr = [1,2,3]
+ Output: 2
+ Explanation: 1 and 2 are cou
+ */
+func countElements(_ arr: [Int]) -> Int {
+    var count = 0
+    let set = Set(arr)
+    for num in arr {
+        if set.contains(num + 1) {
+            count += 1
+        }
+    }
+    return count
+}
+let num1: [Int] = [1,1,2,2]
+countElements(num1)
