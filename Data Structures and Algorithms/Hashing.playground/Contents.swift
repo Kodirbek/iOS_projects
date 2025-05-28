@@ -64,6 +64,7 @@ func findNumbers(_ nums: [Int]) -> [Int] {
 /**
  Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
  */
+/*
 func isPangram(_ sentence: String) -> Bool {
     let letters = Set(sentence)
     return letters.count == 26
@@ -80,3 +81,18 @@ func isPangram2(_ sentence: String) -> Bool {
     
     return seen == (1 << 26) - 1
 }
+*/
+
+/**
+ Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+ For example, Input:  nums = [3,0,1], Output: 2
+ Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+ */
+func missingNumber(_ nums: [Int]) -> Int {
+    let numsFullSet = Set((0...nums.count))
+    let numsSet = Set(nums)
+    return numsFullSet.subtracting(numsSet).first!
+    
+}
+let nums: [Int] = [3,0,1]
+missingNumber(nums)
