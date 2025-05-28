@@ -88,11 +88,21 @@ func isPangram2(_ sentence: String) -> Bool {
  For example, Input:  nums = [3,0,1], Output: 2
  Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
  */
+/*
+ // Complexity: Space: O(n), time: O(n)
 func missingNumber(_ nums: [Int]) -> Int {
     let numsFullSet = Set((0...nums.count))
     let numsSet = Set(nums)
     return numsFullSet.subtracting(numsSet).first!
-    
+}
+*/
+
+// Complexity: Space: O(1), time: O(n)
+func missingNumber2(_ nums: [Int]) -> Int {
+    let n = nums.count
+    let expectedSum = (n * (n + 1)) / 2
+    let actualSum = nums.reduce(0, +)
+    return expectedSum - actualSum
 }
 let nums: [Int] = [3,0,1]
-missingNumber(nums)
+missingNumber2(nums)
