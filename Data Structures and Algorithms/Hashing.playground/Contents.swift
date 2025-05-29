@@ -132,6 +132,7 @@ countElements(num1)
  Example 1: You are given a string s and an integer k. Find the length of the longest substring that contains at most k distinct characters.
  For example, given s = "eceba" and k = 2, return 3. The longest substring with at most 2 distinct characters is "ece".
  */
+
 func longestSubstringKDistinct(_ s: String, _ k: Int) -> Int {
     var counts: [Character: Int] = [:]
     var left = 0, answer = 0
@@ -152,3 +153,31 @@ func longestSubstringKDistinct(_ s: String, _ k: Int) -> Int {
 }
 let s = "eceba", k = 2
 longestSubstringKDistinct(s, k)
+
+
+/**
+ Given a 2D array nums that contains n arrays of distinct integers, return a sorted array containing all the numbers that appear in all n arrays.
+ For example, given nums = [[3,1,2,4,5],[1,2,3,4],[3,4,5,6]], return [3, 4]. 3 and 4 are the only numbers that are in all arrays.
+ */
+func intersection(_ nums: [[Int]]) -> [Int] {
+    var counts: [Int: Int] = [:]
+    for arr in nums {
+        for num in arr {
+            counts[num, default: 0] += 1
+        }
+    }
+    
+    let n = nums.count
+    var answer = [Int]()
+    for (num, count) in counts where count == n {
+        answer.append(num)
+    }
+    
+    if !answer.isEmpty {
+        return answer.sorted()
+    }
+    
+    return []
+}
+let nums = [[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]
+intersection(nums)
