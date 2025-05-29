@@ -113,6 +113,7 @@ missingNumber2(nums)
  Output: 2
  Explanation: 1 and 2 are cou
  */
+/*
 func countElements(_ arr: [Int]) -> Int {
     var count = 0
     let set = Set(arr)
@@ -125,3 +126,29 @@ func countElements(_ arr: [Int]) -> Int {
 }
 let num1: [Int] = [1,1,2,2]
 countElements(num1)
+*/
+
+/**
+ Example 1: You are given a string s and an integer k. Find the length of the longest substring that contains at most k distinct characters.
+ For example, given s = "eceba" and k = 2, return 3. The longest substring with at most 2 distinct characters is "ece".
+ */
+func longestSubstringKDistinct(_ s: String, _ k: Int) -> Int {
+    var counts: [Character: Int] = [:]
+    var left = 0, answer = 0
+    for (index, character) in s.enumerated() {
+        counts[character, default: 0] += 1
+        while counts.count > k {
+            counts[character]! -= 1
+            if counts[character] == 0 {
+                counts.removeValue(forKey: character)
+            }
+            left += 1
+        }
+        
+        answer = max(answer, index - left + 1)
+    }
+    
+    return answer
+}
+let s = "eceba", k = 2
+longestSubstringKDistinct(s, k)
