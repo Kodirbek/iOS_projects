@@ -188,6 +188,7 @@ intersection(nums)
  Given a string s, determine if all characters have the same frequency.
  For example, given s = "abacbc", return true, because all characters appear twice. Given s = "aaabb", return false. "a" appears 3 times, "b" appears 2 times. 3 != 2.
  */
+/*
 func areOccurrencesEqual(_ s: String) -> Bool {
     var freq: [Character: Int] = [:]
     
@@ -200,3 +201,25 @@ func areOccurrencesEqual(_ s: String) -> Bool {
 }
 let s = "abacbc"
 areOccurrencesEqual(s)
+*/
+
+/**
+ Given an integer array nums and an integer k, find the number of subarrays whose sum is equal to k.
+ */
+func subarraySumEqualsK(_ nums: [Int], _ k: Int) -> Int {
+    var counts: [Int: Int] = [:]
+    var current = 0
+    var answer = 0
+    
+    counts[0] = 1
+    
+    for num in nums {
+        current += num
+        answer += counts[current - k] ?? 0
+        counts[current, default: 0] += 1
+    }
+    
+    return answer
+}
+let nums = [1, 2, 1, 2, 1], k = 3
+subarraySumEqualsK(nums, k)
